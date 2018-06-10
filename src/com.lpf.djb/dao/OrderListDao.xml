@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotek.dao.OrderListDao">
+    <resultMap id="orderListMap" type="OrderList">
+        <id property="id" column="id"></id>
+        <result property="cId" column="C_ID"></result>
+        <result property="custAddressId" column="CUST_ADDRESS_ID"></result>
+        <result property="orderCreateTime" column="ORDER_CREATE_TIME"></result>
+        <result property="totalMoney" column="TOTAL_MONEY"></result>
+        <result property="orderState" column="ORDER_STATE"></result>
+    </resultMap>
+    <resultMap id="orderListCustomer" type="OrderListCustomer" extends="orderListMap">
+        <result property="customerName" column="CUSTOMER_NAME"></result>
+        <result property="privince" column="PRIVINCE"></result>
+        <result property="city" column="CITY"></result>
+        <result property="country" column="CONUTRY"></result>
+        <result property="road" column="ROAD"></result>
+    </resultMap>
+    <resultMap id="orderItemMap" type="OrderItem">
+        <id property="id" column="id"></id>
+        <result property="orderListId" column="ORDER_LIST_ID"></result>
+        <result property="pId" column="P_ID"></result>
+        <result property="productCount" column="PRODUCT_COUNT"></result>
+        <result property="orderItemCreateTime" column="ORDER_ITEM_CREATE_TIME"></result>
+        <result property="orderItemState" column="ORDER_ITEM_STATE"></result>
+    </resultMap>
+
+
+
+    <select id="findOrderListCustomer" resultMap="orderListCustomer">
+        SELECT ssol.* ,ssc.CUSTOMER_NAME,ssca.PRIVINCE,
+        ssca.CITY, ssca.CONUTRY ,ssca.ROAD
+        FROM
+        SHOP.SHOP_CUSTOMER ssc, SHOP.SHOP_ORDER_LIST ssol,SHOP.SHOP_CUST_ADDRESS  ssca
+         WHERE ssc.ID=ssol.C_ID  AND  ssca.ID =ssol.CUST_ADDRESS_ID AND ssc.ID=ssca.C_ID
+
+    </select>
+    <resultMap id="findOrderListMap" type="OrderList"  extends="orderListMap">
+        <collection property="orderItems" ofType="OrderItem" select="findOrderItemByOL_ID" column="id">
+
+        </collection>
+
+    </resultMap>
+    <select id="findOrderListById" resultMap="findOrderListMap" parameterType="java.lang.Integer">
+        SELECT  * from SHOP.SHOP_ORDER_LIST WHERE ID=#{id}
+    </select>
+    <select id="findOrderItemByOL_ID" parameterType="java.lang.Integer" resultMap="orderItemMap">
+        SELECT * from SHOP.SHOP_ORDER_ITEM ssoi WHERE  ssoi.ORDER_LIST_ID=#{solId}
+    </select>
+
+
+
+
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotek.dao.ShelfDao">
+    <resultMap id="shelfMap" type="Shelf">
+        <id property="id" column="id"></id>
+        <result property="pId" column="P_ID"></result>
+        <result property="adminId" column="ADMIN_ID"></result>
+        <result property="shelfUpdateTime" column="SHELF_UPDATE_TIME"></result>
+        <result property="shelfState" column="SHELF_STATE"></result>
+
+    </resultMap>
+
+
+    <insert id="saveShelf" parameterType="Shelf">
+        <selectKey keyProperty="id" order="BEFORE"  resultType="java.lang.Integer">
+            SELECT  shop_seq.nextval from dual
+        </selectKey>
+
+        INSERT  INTO SHOP.SHOP_SHELF(ID, P_ID, ADMIN_ID,SHELF_STATE)
+        VALUES (#{id},#{pId},#{adminId},#{shelfState})
+    </insert>
+    <select id="findShelfByPId" parameterType="java.lang.Integer" resultMap="shelfMap">
+        SELECT  * FROM
+        SHOP.SHOP_SHELF WHERE P_ID=#{pId}
+    </select>
+    <update id="updateShelf" parameterType="Shelf">
+        UPDATE  SHOP.SHOP_SHELF set SHELF_STATE=#{shelfState} WHERE id= #{id}
+
+    </update>
+
+
+</mapper>
