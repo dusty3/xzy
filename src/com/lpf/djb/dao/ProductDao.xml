@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lpf.dao.ProductDao">
+    <resultMap id="productMap" type="Product">
+        <id property="id" column="id"></id>
+        <result property="productName" column="PRODUCT_NAME"></result>
+        <result property="productType" column="PRODUCT_TYPE"></result>
+        <result property="productPrice" column="PRODUCT_PRICE"></result>
+        <result property="prodcutCreateTime" column="PRODUCT_CREATE_TIME"></result>
+    </resultMap>
+    <resultMap id="prdoductDetailMap" type="ProductDetail">
+        <id property="id" column="sspdId"></id>
+        <result property="pId" column="P_ID"></result>
+        <result property="image1" column="IMAGE1"></result>
+        <result property="image2" column="IMAGE2"></result>
+        <result property="productCaption" column="PRODUCT_CAPTION"></result>
+    </resultMap>
+
+    <resultMap id="ProductByNameMap" type="Product" extends="productMap">
+        <association property="productDetail" resultMap="prdoductDetailMap">
+        </association>
+    </resultMap>
+    <select id="findProductById" parameterType="java.lang.Integer" resultMap="productMap">
+        SELECT * FROM  SHOP.SHOP_PRODUCT WHERE ID=#{id}
+    </select>
+
+    <insert id="saveProduct" parameterType="Product">
+        <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+            <include refid="insertIdSQL"></include>
+        </selectKey>
+        INSERT INTO SHOP.SHOP_PRODUCT (ID, PRODUCT_NAME, PRODUCT_TYPE, PRODUCT_PRICE)
+        VALUES (#{id},#{productName},#{productType},#{productPrice})
+
+    </insert>
+    <sql id="insertIdSQL">
+          SELECT  shop_seq.nextval from  dual
+    </sql>
+    <insert id="saveProductDetail" parameterType="ProductDetail">
+        <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+            <include refid="insertIdSQL"></include>
+        </selectKey>
+        INSERT INTO SHOP.SHOP_PRODUCT_DETAIL (ID, P_ID, IMAGE1, IMAGE2, PRODUCT_CAPTION)
+        VALUES (#{id},#{pId},#{image1},#{image2},#{productCaption})
+    </insert>
+
+    <select id="getProductByName" parameterType="Product" resultMap="ProductByNameMap">
+        SELECT ssp.*,sspd.ID sspdId,sspd.P_ID,sspd.IMAGE1,sspd.IMAGE2, sspd.PRODUCT_CAPTION  from SHOP.SHOP_PRODUCT ssp, SHOP.SHOP_PRODUCT_DETAIL sspd
+        WHERE  ssp.PRODUCT_NAME=#{productName} AND  sspd.PRODUCT_CAPTION=#{productDetail.productCaption}
+
+    </select>
+    <select id="getProductHashMapByName" parameterType="hashmap" resultMap="ProductByNameMap">
+        SELECT ssp.*,sspd.ID sspdId,sspd.P_ID,sspd.IMAGE1,sspd.IMAGE2, sspd.PRODUCT_CAPTION  from SHOP.SHOP_PRODUCT ssp, SHOP.SHOP_PRODUCT_DETAIL sspd
+        WHERE  ssp.PRODUCT_NAME=#{productName} AND  sspd.PRODUCT_CAPTION=#{productCaption}
+    </select>
+
+    <select id="findAllProduct" resultMap="ProductByNameMap">
+         SELECT ssp.*,sspd.ID sspdId,sspd.P_ID,sspd.IMAGE1,sspd.IMAGE2, sspd.PRODUCT_CAPTION  from SHOP.SHOP_PRODUCT ssp, SHOP.SHOP_PRODUCT_DETAIL sspd
+        WHERE ssp.ID=sspd.P_ID
+
+    </select>
+
+
+</mapper>

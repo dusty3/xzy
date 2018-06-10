@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lpf.dao.CustomerDao" >
+    <resultMap id="customerMap" type="Customer">
+        <id property="id" column="id"></id>
+        <result property="customerName" column="CUSTOMER_NAME"></result>
+        <result property="customerPassword" column="CUSTOMER_PASSWORD"></result>
+        <result property="customerEmail" column="CUSTOMER_EMIAL"></result>
+        <result property="customerPhone" column="CUSTOMER_PHONE"></result>
+        <result property="customerMoney" column="CUSTOMER_MONEY"></result>
+        <result property="createTime" column="create_time"></result>
+        <association property="custAddress" resultMap="custAddressMap" column="sscaId"></association>
+    </resultMap>
+    <resultMap id="custAddressMap" type="CustAddress">
+        <id property="id" column="sscaId"></id>
+       <result property="cId" column="C_ID"></result>
+       <result property="privince" column="PRIVINCE"></result>
+       <result property="city" column="CITY"></result>
+       <result property="country" column="CONUTRY"></result>
+       <result property="road" column="ROAD"></result>
+       <result property="addressCreateTime" column="ADDRESS_CREATE_TIME"></result>
+    </resultMap>
+
+<insert id="saveCustomer" parameterType="Customer">
+    <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+       SELECT  shop_seq.nextval from dual
+    </selectKey>
+    INSERT  INTO  SHOP.SHOP_CUSTOMER(ID, CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMIAL, CUSTOMER_PHONE, CUSTOMER_MONEY)
+    VALUES (#{id},#{customerName},#{customerPassword},#{customerEmail},#{customerPhone},#{customerMoney})
+</insert>
+    <select id="findCustomertByName" parameterType="Customer" resultMap="customerMap">
+        SELECT * FROM SHOP.SHOP_CUSTOMER  ssc WHERE ssc.CUSTOMER_NAME=#{customerName}
+         AND ssc.CUSTOMER_PASSWORD=#{customerPassword}
+
+    </select>
+    <select id="isExistCustomerName" parameterType="String" resultMap="customerMap">
+        SELECT * FROM SHOP.SHOP_CUSTOMER  ssc WHERE ssc.CUSTOMER_NAME=#{customerName}
+    </select>
+
+</mapper>
