@@ -8,7 +8,7 @@
   <!-- 加载spring容器 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/applicationContext.xml,/WEB-INF/applicationContext-service.xml,/WEB-INF/springmvc.xml,/WEB-INF/applicationContext-dao.xml</param-value>
+    <param-value>/config/applicationContext.xml,/config/applicationContext-service.xml,/config/springmvc.xml,/config/applicationContext-dao.xml</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -21,7 +21,7 @@
     <!-- 配置springmvc配置文件的位置 -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:springmvc.xml</param-value>
+      <param-value>classpath:config/springmvc.xml</param-value>
     </init-param>
     <!--
         默认的servlet的创建时间是第一次被访问的时候。
@@ -36,6 +36,6 @@
   </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>/WEB-INF/login.html</welcome-file>
   </welcome-file-list>
 </web-app>
