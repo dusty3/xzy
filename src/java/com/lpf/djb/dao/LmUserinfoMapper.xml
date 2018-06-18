@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lpf.djb.dao.LmUserinfoMapper">
+  <resultMap id="BaseResultMap1" type="com.lpf.djb.pojo.LmUserinfo">
+    <id column="userinfo_id" jdbcType="INTEGER" property="userinfoId" />
+    <result column="login_id" jdbcType="INTEGER" property="loginId" />
+    <result column="userinfo_name" jdbcType="VARCHAR" property="userinfoName" />
+    <result column="userinfo_email" jdbcType="VARCHAR" property="userinfoEmail" />
+    <result column="userinfo_phone" jdbcType="VARCHAR" property="userinfoPhone" />
+    <result column="userinfo_tele" jdbcType="VARCHAR" property="userinfoTele" />
+    <result column="userinfo_fax" jdbcType="VARCHAR" property="userinfoFax" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="dr" jdbcType="INTEGER" property="dr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userinfo_id, login_id, userinfo_name, userinfo_email, userinfo_phone, userinfo_tele, 
+    userinfo_fax, createtime, dr
+  </sql>
+ <!-- <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from lm_userinfo
+    where userinfo_id = #{userinfoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from lm_userinfo
+    where userinfo_id = #{userinfoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="test.model.LmUserinfo">
+    insert into lm_userinfo (userinfo_id, login_id, userinfo_name, 
+      userinfo_email, userinfo_phone, userinfo_tele, 
+      userinfo_fax, createtime, dr
+      )
+    values (#{userinfoId,jdbcType=INTEGER}, #{loginId,jdbcType=INTEGER}, #{userinfoName,jdbcType=VARCHAR}, 
+      #{userinfoEmail,jdbcType=VARCHAR}, #{userinfoPhone,jdbcType=VARCHAR}, #{userinfoTele,jdbcType=VARCHAR}, 
+      #{userinfoFax,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{dr,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="test.model.LmUserinfo">
+    insert into lm_userinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userinfoId != null">
+        userinfo_id,
+      </if>
+      <if test="loginId != null">
+        login_id,
+      </if>
+      <if test="userinfoName != null">
+        userinfo_name,
+      </if>
+      <if test="userinfoEmail != null">
+        userinfo_email,
+      </if>
+      <if test="userinfoPhone != null">
+        userinfo_phone,
+      </if>
+      <if test="userinfoTele != null">
+        userinfo_tele,
+      </if>
+      <if test="userinfoFax != null">
+        userinfo_fax,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="dr != null">
+        dr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userinfoId != null">
+        #{userinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="loginId != null">
+        #{loginId,jdbcType=INTEGER},
+      </if>
+      <if test="userinfoName != null">
+        #{userinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoEmail != null">
+        #{userinfoEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoPhone != null">
+        #{userinfoPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoTele != null">
+        #{userinfoTele,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoFax != null">
+        #{userinfoFax,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dr != null">
+        #{dr,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="test.model.LmUserinfo">
+    update lm_userinfo
+    <set>
+      <if test="loginId != null">
+        login_id = #{loginId,jdbcType=INTEGER},
+      </if>
+      <if test="userinfoName != null">
+        userinfo_name = #{userinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoEmail != null">
+        userinfo_email = #{userinfoEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoPhone != null">
+        userinfo_phone = #{userinfoPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoTele != null">
+        userinfo_tele = #{userinfoTele,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoFax != null">
+        userinfo_fax = #{userinfoFax,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dr != null">
+        dr = #{dr,jdbcType=INTEGER},
+      </if>
+    </set>
+    where userinfo_id = #{userinfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="test.model.LmUserinfo">
+    update lm_userinfo
+    set login_id = #{loginId,jdbcType=INTEGER},
+      userinfo_name = #{userinfoName,jdbcType=VARCHAR},
+      userinfo_email = #{userinfoEmail,jdbcType=VARCHAR},
+      userinfo_phone = #{userinfoPhone,jdbcType=VARCHAR},
+      userinfo_tele = #{userinfoTele,jdbcType=VARCHAR},
+      userinfo_fax = #{userinfoFax,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      dr = #{dr,jdbcType=INTEGER}
+    where userinfo_id = #{userinfoId,jdbcType=INTEGER}
+  </update>-->
+</mapper>
