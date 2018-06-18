@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 	<!--加载数据库配置文件  -->
-	<context:property-placeholder location="classpath:config/database.properties"/>
+	<context:property-placeholder location="config/database.properties"/>
 	
 	<!--配置数据源 
 		destroy-method:当你的数据库连接不需要的时候，将该连接返还到数据库连接池中。

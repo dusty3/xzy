@@ -16,7 +16,7 @@
 		<!--数据源  -->
 		<property name="dataSource" ref="dataSource"></property>
 		<!--SqlMapConfig  -->
-		<property name="configLocation" value="classpath:config/SqlMapConfig.xml"></property>
+		<property name="configLocation" value="config/SqlMapConfig.xml"></property>
 	</bean>
 	
 	<!--扫描映射文件，并生成接口对象 userDao对象 

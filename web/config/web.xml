@@ -21,7 +21,7 @@
     <!-- 配置springmvc配置文件的位置 -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:config/springmvc.xml</param-value>
+      <param-value>config/springmvc.xml</param-value>
     </init-param>
     <!--
         默认的servlet的创建时间是第一次被访问的时候。
