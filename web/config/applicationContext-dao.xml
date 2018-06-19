@@ -28,6 +28,6 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
 	  	
 	  	<!-- 扫描包路径 ： 多个包中间用半角逗号分隔 -->
-		<property name="basePackage" value="com.zxx.dao"/>
+		<property name="basePackage" value="com.lpf.djb.dao"/>
 	</bean>
 </beans>

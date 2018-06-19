@@ -16,8 +16,10 @@
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
             id="internalResourceViewResolver">
         <!-- 前缀 -->
-        <property name="prefix" value="/jsp/" />
+        <!--<property name="prefix" value="/jsp/" />-->
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
-    </bean>        
+    </bean>
+
+    <mvc:resources mapping="/assets/**" location="/assets/"></mvc:resources>
 </beans>
