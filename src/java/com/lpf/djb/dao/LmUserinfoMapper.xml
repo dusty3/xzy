@@ -10,11 +10,13 @@
     <result column="userinfo_tele" jdbcType="VARCHAR" property="userinfoTele" />
     <result column="userinfo_fax" jdbcType="VARCHAR" property="userinfoFax" />
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="userinfo_createtime" jdbcType="TIMESTAMP" property="userinfo_createtime" />
+    <result column="userinfo_modifytime" jdbcType="TIMESTAMP" property="userinfo_modifytime" />
     <result column="dr" jdbcType="INTEGER" property="dr" />
   </resultMap>
   <sql id="Base_Column_List">
     userinfo_id, login_id, userinfo_name, userinfo_email, userinfo_phone, userinfo_tele, 
-    userinfo_fax, createtime, dr
+    userinfo_fax, userinfo_createtime, userinfo_modifytime, dr
   </sql>
  <!-- <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 

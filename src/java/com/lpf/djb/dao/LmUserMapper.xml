@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lpf.djb.dao.LmUserMapper">
+<mapper namespace="com.lpf.djb.dao.LMUserMapper">
   <resultMap id="BaseResultMap" type="com.lpf.djb.pojo.LmUser">
     <id column="login_id" jdbcType="INTEGER" property="loginId" />
     <result column="login_usercode" jdbcType="VARCHAR" property="loginUsercode" />
@@ -104,7 +104,7 @@
     where login_id = #{loginId,jdbcType=INTEGER}
   </update>-->
   <select id="userlogin" parameterType="com.lpf.djb.pojo.LmUser" resultMap="BaseResultMap">
-    SELECT * from  Lm_user where login_usercode=#{loginUsercode} and login_password=#{loginPassword}
+    SELECT * from  Lm_user where login_usercode = #{loginUsercode} and login_password = #{loginPassword}
   </select>
 
 

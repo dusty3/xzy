@@ -13,6 +13,8 @@
     <script src="assets/jquery.min.js"></script>
 </head>
 
+
+
 <body>
 <div class="navbar navbar-default" id="navbar">
     <script type="text/javascript">
@@ -34,7 +36,7 @@
         <!-- /.navbar-header -->
 
         <div class="navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
+            <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                 <li class="green">
                     <ul
                             class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
@@ -59,7 +61,7 @@
                         <li class="divider">
                         </li>
 
-                        <li><a href="login.jsp"> <i class="icon-off"></i> 退出
+                        <li><a href="login.html"> <i class="icon-off"></i> 退出
                         </a></li>
 
                     </ul>
@@ -127,7 +129,7 @@
                        class="dropdown-toggle"> <i class="icon-desktop"></i> <span
                         class="menu-text"> 客户管理 </span> <b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
-                        <li><a href="../view/customer/customer/customer_list.html" target="mainframe">
+                        <li><a href="view/customer/customer_list.jsp" target="mainframe">
 
                             <i class="icon-double-angle-right"></i> 客户信息
                         </a></li>
@@ -354,7 +356,7 @@
                                     : 1000,
                                 size: size
                             });
-                });
+                })
 
         $('.sparkline').each(
             function () {
@@ -393,7 +395,7 @@
             label: "other",
             data: 10,
             color: "#FEE074"
-        }];
+        }]
 
         function drawPieChart(placeholder, data, position) {
             $.plot(placeholder, data, {
@@ -520,7 +522,7 @@
 
         function tooltip_placement(context, source) {
             var $source = $(source);
-            var $parent = $source.closest('.tab-content');
+            var $parent = $source.closest('.tab-content')
             var off1 = $parent.offset();
             var w1 = $parent.width();
 
@@ -571,6 +573,9 @@
             });
 
     })
+
+
+
 </script>
 </body>
 </html>

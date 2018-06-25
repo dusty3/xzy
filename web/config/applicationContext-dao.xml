@@ -17,6 +17,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<!--SqlMapConfig  -->
 		<property name="configLocation" value="config/SqlMapConfig.xml"></property>
+		<property name="mapperLocations" value="classpath:com/lpf/djb/dao/*.xml" />
 	</bean>
 	
 	<!--扫描映射文件，并生成接口对象 userDao对象 
@@ -29,5 +30,6 @@
 	  	
 	  	<!-- 扫描包路径 ： 多个包中间用半角逗号分隔 -->
 		<property name="basePackage" value="com.lpf.djb.dao"/>
+
 	</bean>
 </beans>

@@ -54,7 +54,6 @@
                                         </label>
 
                                             <div class="clearfix">
-
                                               ${info}
                                                 <button type="submit"
                                                         class="width-35 pull-right btn btn-sm btn-primary">

@@ -3,7 +3,9 @@ package com.lpf.djb.dao;
 
 import com.lpf.djb.pojo.LmUser;
 
-public interface LmUserMapper {
+import javax.annotation.Resource;
+
+public interface LMUserMapper {
     int deleteByPrimaryKey(Integer loginId);
 
     int insert(LmUser record);
@@ -18,7 +20,6 @@ public interface LmUserMapper {
 
     /**用戶登陸
      * @param lmUser
-     * @return
      */
     LmUser userlogin(LmUser lmUser);
 }

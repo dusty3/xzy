@@ -17,7 +17,9 @@ public class LmUserinfo {
 
     private String userinfoFax;
 
-    private Date createtime;
+    private Date userinfo_createtime;
+
+    private Date userinfo_modifytime;
 
     private Integer dr;
 
@@ -77,12 +79,20 @@ public class LmUserinfo {
         this.userinfoFax = userinfoFax == null ? null : userinfoFax.trim();
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getUserinfoCreatetime() {
+        return userinfo_createtime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setUserinfoCreatetime(Date userinfo_createtime) {
+        this.userinfo_createtime = userinfo_createtime;
+    }
+
+    public Date getUserinfoModifytime() {
+        return userinfo_modifytime;
+    }
+
+    public void setUserinfoModifytime(Date userinfo_modifytime) {
+        this.userinfo_modifytime = userinfo_modifytime;
     }
 
     public Integer getDr() {

@@ -10,7 +10,7 @@
  	  -->
  	  
  	  <typeAliases>
- 	  	<package name="com.lpf.djb.dao"/>
+ 	  	<package name="com.lpf.djb.pojo"/>
  	  </typeAliases>
  	
  	<mappers>
