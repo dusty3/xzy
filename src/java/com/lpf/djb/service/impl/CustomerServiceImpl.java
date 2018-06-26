@@ -33,4 +33,26 @@ public class CustomerServiceImpl  implements CustomerService{
         customer.setCustomerDr(0);
         customerMapper.updateCustomer(customer);
     }
+
+    @Override
+    public void delcutomer(Integer customerid) {
+        customerMapper.delcutomer(customerid);
+    }
+
+    @Override
+    public int querynewId() {
+        return customerMapper.querynewid();
+    }
+
+    @Override
+    public void insertCustomer(Customer customer) {
+        customer.setCustomerDr(0);
+        Date date=new Date();
+        customer.setCustomerCreatetime(date);
+ /*       customer.getCustomerMakingpartid(customer.getCustomerMakingpartname());*/
+        customer.setCustomerSalesmanid(1);
+        customerMapper.insertCustomer(customer);
+    }
+
+
 }

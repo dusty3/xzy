@@ -31,7 +31,7 @@ public class CustomerCotroller {
     public String  forwardtoUpdateView(@RequestParam("customerId") String customerId, HttpSession httpSession, Model model){
         Customer customer = customerService.queyByid(Integer.valueOf(customerId));
         model.addAttribute("customer",customer);
-        return  "view/customer/customer/customer_update";
+        return  "view/customer/customer_update";
 
     }
 
@@ -48,6 +48,52 @@ public class CustomerCotroller {
         List<Customer> loadingcustomer = userLoginService.loadingcustomer(user);
         httpSession.setAttribute("custmers",loadingcustomer);
 
-         return  "view/customer/customer/customer_list";
+         return  "view/customer/customer_list";
     }
+
+
+
+
+
+    @RequestMapping(value = "/deletecustomer",method = RequestMethod.GET)
+    public String  deletecustomer(@RequestParam("customerId") String customerId, HttpSession httpSession, Model model){
+        customerService.delcutomer(Integer.valueOf(customerId));
+
+        httpSession.setAttribute("info","删除成功！");
+
+        LmUser user = (LmUser) httpSession.getAttribute("user");
+        List<Customer> loadingcustomer = userLoginService.loadingcustomer(user);
+        httpSession.setAttribute("custmers",loadingcustomer);
+
+        return  "view/customer/customer_list";
+    }
+
+
+    @RequestMapping(value = "/tocustomerview",method = RequestMethod.GET)
+    public String  tocustomerview( HttpSession httpSession, Model model){
+
+        int i = customerService.querynewId();
+        model.addAttribute("newcustomerid",i+1);
+        return  "view/customer/customer_add";
+    }
+
+
+
+    @RequestMapping(value = "/addcustomer",method = RequestMethod.POST)
+    public String  addcustomer(@ModelAttribute  Customer customer, HttpSession httpSession, Model model){
+
+
+
+        customerService.insertCustomer(customer);
+
+        httpSession.setAttribute("info","添加成功！");
+
+        LmUser user = (LmUser) httpSession.getAttribute("user");
+        List<Customer> loadingcustomer = userLoginService.loadingcustomer(user);
+        httpSession.setAttribute("custmers",loadingcustomer);
+
+        return  "view/customer/customer_list";
+    }
+
+
 }

@@ -12,4 +12,12 @@ public interface CustomerService {
     public Customer queyByid(Integer customerid);
 
     public  void  updateCustomer(Customer cmCustomer);
+
+    public  void    delcutomer(Integer   customerid);
+
+
+    public  int     querynewId();
+
+
+    public  void   insertCustomer(Customer customer);
 }

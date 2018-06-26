@@ -54,7 +54,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">开票抬头</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入开票抬头" value="${customer.customerInvoicename}"/>
+                    <input type="text" name="customerInvoicename" class="form-control input-sm" placeholder="请输入开票抬头" value="${customer.customerInvoicename}"/>
                 </div>
             </div>
         </div>

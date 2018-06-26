@@ -22,4 +22,10 @@ public interface CustomerMapper {
     List<Customer> loadingcustomer(LmUser lmUser);
 
     void updateCustomer(Customer Customer);
+
+    void delcutomer(Integer customerid);
+
+    int querynewid();
+
+    void insertCustomer(Customer customer);
 }

@@ -133,6 +133,11 @@
 
                             <i class="icon-double-angle-right"></i> 客户信息
                         </a></li>
+
+                        <%--查询所有用户所属业务员--%>
+                        <li><a href="./view/customer/customer_list.html" target="mainframe">
+                            <i class="icon-double-angle-right"></i> 所有客户
+                        </a></li>
                     </ul>
                 </li>
 
@@ -142,42 +147,50 @@
                 </a>
 
                     <ul class="submenu">
+                        <li><a href="./view/supplier/supplier_list.html" target="mainframe">
 
-                        <li><a href="../../原型设计%20-%200.1/view/classinfo/disciplineinfo/disciplineinfo_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 学科信息
-                        </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/classinfo/classroominfo/classroominfo_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 教室信息
-                        </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/classinfo/syllabusinfo/syllabusinfo_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 课程表
-                        </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/classinfo/teacher/teacher_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 教师管理
-                        </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/classinfo/classinfo/classinfo_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 班级管理
+                            <i class="icon-double-angle-right"></i> 供应商信息
                         </a></li>
                     </ul>
                 </li>
+
+                <li><a href="javascript:void(0)" target="mainframe" class="dropdown-toggle">
+                    <i class="icon-desktop"></i>
+                    <span class="menu-text"> 品牌管理 </span> <b class="arrow icon-angle-down"></b>
+                </a>
+
+                    <ul class="submenu">
+                        <li><a href="./view/brand/brand_list.html" target="mainframe">
+
+                            <i class="icon-double-angle-right"></i> 品牌信息
+                        </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="javascript:void(0)" target="mainframe" class="dropdown-toggle">
+                    <i class="icon-desktop"></i>
+                    <span class="menu-text"> 产品管理 </span> <b class="arrow icon-angle-down"></b>
+                </a>
+
+                    <ul class="submenu">
+                        <li><a href="./view/product/product_list.html" target="mainframe">
+
+                            <i class="icon-double-angle-right"></i> 产品信息
+                        </a></li>
+                    </ul>
+                </li>
+
+
                 <li><a href="javascript:void(0)" target="mainframe"
                        class="dropdown-toggle"> <i class="icon-desktop"></i> <span
                         class="menu-text"> 询价模块 </span> <b class="arrow icon-angle-down"></b>
                 </a>
 
                     <ul class="submenu">
-                        <li><a href="../../原型设计%20-%200.1/view/student/student/student_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 学员信息
+                        <li><a href="#" target="mainframe"> <i
+                                class="icon-double-angle-right"></i> 1
                         </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/student/evaluationinfo/evaluationinfo_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 学员评价
-                        </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/student/communicateinfo/communicateinfo_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 沟通记录
-                        </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/student/studentwritegrade/studentwritegrade_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 学员成绩
-                        </a></li>
+
                     </ul>
                 </li>
 
@@ -187,11 +200,11 @@
                 </a>
 
                     <ul class="submenu">
-                        <li><a href="../../原型设计%20-%200.1/view/student/student/student_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 班级事务
+                        <li><a href="#" target="mainframe"> <i
+                                class="icon-double-angle-right"></i> 1
                         </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/student/evaluationinfo/evaluationinfo_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 学员考勤
+                        <li><a href="#" target="mainframe"> <i
+                                class="icon-double-angle-right"></i> 2
                         </a></li>
 
                     </ul>
@@ -203,11 +216,11 @@
                 </a>
 
                     <ul class="submenu">
-                        <li><a href="../../原型设计%20-%200.1/view/student/student/student_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 学员缴费
+                        <li><a href="#" target="mainframe"> <i
+                                class="icon-double-angle-right"></i> 1
                         </a></li>
-                        <li><a href="../../原型设计%20-%200.1/view/student/evaluationinfo/evaluationinfo_list.html" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 员工薪水
+                        <li><a href="#" target="mainframe"> <i
+                                class="icon-double-angle-right"></i> 2
                         </a></li>
 
                     </ul>

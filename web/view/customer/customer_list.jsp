@@ -1,30 +1,40 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+                + path + "/";
+    %>
+
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>首页</title>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/css/bootstrap.min.css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="./js/jquery.min.js"></script>
+    <script src="<%=basePath%>/js/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="<%=basePath%>/js/bootstrap.min.js"></script>
+
+
+
+
 </head>
 
-<%
-    String info=(String)session.getAttribute("info");
-    if("".equals(info)  && info==null){
+<%--<%--%>
+    <%--String info=(String)session.getAttribute("info");--%>
+    <%--if("".equals(info)  && info==null){--%>
 
-    }
+    <%--}--%>
 
-    else{%>
-<script type="text/javascript">
-    alert("<%=info%>");
-</script>
+    <%--else{%>--%>
+<%--<script type="text/javascript">--%>
+    <%--alert("<%=info%>");--%>
+<%--</script>--%>
 
-session.setAttribute("info", "");
-<% }%>
+<%--session.setAttribute("info", "");--%>
+<%--<% }%>--%>
 
 <body>
 <div style="padding:0px; margin:0px;">
@@ -42,7 +52,7 @@ session.setAttribute("info", "");
       </div>
 
     <input type="button"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="customer_add.html">添加客户</a>
+    <a  class="btn btn-success"  href="<%=basePath%>/tocustomerview">添加客户</a>
     
 </div>
 <div class="row" style="padding:15px; padding-top:0px; ">
@@ -65,8 +75,8 @@ session.setAttribute("info", "");
             <td>${customer.customerLinkemaile}</td>
             <td>${customer.customerSalesmanname}</td>
             <th>
-                <a href="/updatecustomerView?customerId=${customer.customerId}">修改</a>
-                <a href="">删除</a>
+                <a href="<%=basePath%>/updatecustomerView?customerId=${customer.customerId}">修改</a>
+                <a href="<%=basePath%>/deletecustomer?customerId=${customer.customerId}">删除</a>
             </th>
 
         </tr>
