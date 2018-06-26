@@ -36,6 +36,13 @@
 <%--session.setAttribute("info", "");--%>
 <%--<% }%>--%>
 
+<script>
+    function SendForm () {
+
+        document.querycustomer.submit();
+
+    }
+</script>
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -43,18 +50,19 @@
         <li>查询客户</li>
     </ul>
 </div>
-<form class="form-inline">
+<form  action="<%=basePath%>/querycustomer" class="form-inline" method="post" name="querycustomer">
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
      <div class="form-group">
          <label class="" for="activename">公司名字：</label>
-        <input type="email" class="form-control" id="activename" placeholder="请输入公司名字" >
+        <input  name="corpname" type="email" class="form-control" id="activename" placeholder="请输入公司名字" >
       </div>
 
-    <input type="button"   class="btn btn-danger"     value="查询"/>
+    <input type="button"   class="btn btn-danger"  onclick="SendForm()"    value="查询"/>
     <a  class="btn btn-success"  href="<%=basePath%>/tocustomerview">添加客户</a>
     
 </div>
+</form>
 <div class="row" style="padding:15px; padding-top:0px; ">
 	<table class="table  table-condensed table-striped">
     	<tr>
@@ -85,6 +93,5 @@
 
     </table>
 </div>
-</form>
 </body>
 </html>

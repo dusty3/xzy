@@ -62,7 +62,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">税号</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入税号" value="${customer.customerInvoiceduty}"/>
+                    <input type="text" name="customerInvoiceduty" class="form-control input-sm" placeholder="请输入税号" value="${customer.customerInvoiceduty}"/>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">开户行</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入开户行" value="${customer.customerInvoicebank}"/>
+                    <input type="text" name="customerInvoicebank" class="form-control input-sm" placeholder="请输入开户行" value="${customer.customerInvoicebank}"/>
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">银行账户</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入银行账户" value="${customer.customerInvoiceaccount}"/>
+                    <input type="text" name="customerInvoiceaccount" class="form-control input-sm" placeholder="请输入银行账户" value="${customer.customerInvoiceaccount}"/>
                 </div>
             </div>
         </div>
@@ -94,7 +94,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">开票电话</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入开票电话" value="${customer.customerInvoicetele}"/>
+                    <input type="text" name="customerInvoicetele" class="form-control input-sm" placeholder="请输入开票电话" value="${customer.customerInvoicetele}"/>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">开票地址</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入开票地址" value="${customer.customerInvoiceaddress}"/>
+                    <input type="text" name="customerInvoiceaddress" class="form-control input-sm" placeholder="请输入开票地址" value="${customer.customerInvoiceaddress}"/>
                 </div>
             </div>
         </div>
@@ -115,7 +115,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">业务联系人</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入业务联系人" value="${customer.customerLinkman}"/>
+                    <input type="text" name="customerLinkman" class="form-control input-sm" placeholder="请输入业务联系人" value="${customer.customerLinkman}"/>
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">业务联系电话</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入业务联系电话" value="${customer.customerLinktele}"/>
+                    <input type="text" name="customerLinktele" class="form-control input-sm" placeholder="请输入业务联系电话" value="${customer.customerLinktele}"/>
                 </div>
             </div>
         </div>
@@ -135,7 +135,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">业务电子邮箱</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入业务电子邮箱"  value="${customer.customerLinkemaile}"/>
+                    <input type="text" name="customerLinkemaile" class="form-control input-sm" placeholder="请输入业务电子邮箱"  value="${customer.customerLinkemaile}"/>
                 </div>
             </div>
         </div>
@@ -149,7 +149,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">收件地址</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入收件地址" value="${customer.customerGoodsaddress}"/>
+                    <input type="text" name="customerGoodsaddress" class="form-control input-sm" placeholder="请输入收件地址" value="${customer.customerGoodsaddress}"/>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">收件联系人</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入收件联系人" value="${customer.customerGoodsman}"/>
+                    <input type="text" name="customerGoodsman" class="form-control input-sm" placeholder="请输入收件联系人" value="${customer.customerGoodsman}"/>
                 </div>
             </div>
         </div>
@@ -169,7 +169,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">收件人 联系电话</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入收件人 联系电话" value="${customer.customerGoodstele}"/>
+                    <input type="text" name="customerGoodstele" class="form-control input-sm" placeholder="请输入收件人 联系电话" value="${customer.customerGoodstele}"/>
                 </div>
             </div>
         </div>
@@ -177,7 +177,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">收件人 联系邮箱</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入收件人 联系邮箱"  value="${customer.customerGoodsemaile}" />
+                    <input type="text" name="customerGoodsemaile" class="form-control input-sm" placeholder="请输入收件人 联系邮箱"  value="${customer.customerGoodsemaile}" />
                 </div>
             </div>
         </div>
@@ -191,7 +191,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">收票地址</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入收票地址" value="${customer.customerTicketaddress}"/>
+                    <input type="text" name="customerTicketaddress" class="form-control input-sm" placeholder="请输入收票地址" value="${customer.customerTicketaddress}"/>
                 </div>
             </div>
         </div>
@@ -199,7 +199,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">收票联系人</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入收票联系人"  value="${customer.customerTicketman}"/>
+                    <input type="text" name="customerTicketman" class="form-control input-sm" placeholder="请输入收票联系人"  value="${customer.customerTicketman}"/>
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">收票人 联系电话</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="收票人 联系电话" value="${customer.customerTickettele}"/>
+                    <input type="text" name="customerTickettele" class="form-control input-sm" placeholder="收票人 联系电话" value="${customer.customerTickettele}"/>
                 </div>
             </div>
         </div>
@@ -219,7 +219,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">收票人 联系邮箱</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="收票人 联系邮箱" value="${customer.customerTicketemaile}"/>
+                    <input type="text" name="customerTicketemaile" class="form-control input-sm" placeholder="收票人 联系邮箱" value="${customer.customerTicketemaile}"/>
                 </div>
             </div>
         </div>
@@ -232,7 +232,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">所属业务员</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="请输入业务员名字（默认登录用户）" value="${customer.customerSalesmanid}" <%--readonly="readonly"--%>/>
+                    <input type="text" name="customerSalesmanid" class="form-control input-sm" placeholder="请输入业务员名字（默认登录用户）" value="${customer.customerSalesmanid}" <%--readonly="readonly"--%>/>
                 </div>
             </div>
         </div>
@@ -240,7 +240,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">制单员</label>
                 <div class="col-sm-9">
-                    <input type="text" name="" class="form-control input-sm" placeholder="默认登录用户，不可修改" value="${sessionScope.user.loginUsercode}"  readonly="readonly"/>
+                    <input type="text" name="loginUsercode" class="form-control input-sm" placeholder="默认登录用户，不可修改" value="${sessionScope.user.loginUsercode}"  readonly="readonly"/>
                 </div>
             </div>
         </div>

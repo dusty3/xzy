@@ -5,6 +5,7 @@ import com.lpf.djb.pojo.Customer;
 import com.lpf.djb.pojo.LmUser;
 import com.lpf.djb.service.serviceInterface.CustomerService;
 import com.lpf.djb.service.serviceInterface.UserLoginService;
+import javafx.collections.ObservableMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by dusty on 2018/6/23.
@@ -91,6 +94,25 @@ public class CustomerCotroller {
         LmUser user = (LmUser) httpSession.getAttribute("user");
         List<Customer> loadingcustomer = userLoginService.loadingcustomer(user);
         httpSession.setAttribute("custmers",loadingcustomer);
+
+        return  "view/customer/customer_list";
+    }
+
+
+    @RequestMapping(value = "/querycustomer",method = RequestMethod.POST)
+    public String  querycustomer(@RequestParam("corpname") String corpname, HttpSession httpSession, Model model){
+
+        LmUser user = (LmUser) httpSession.getAttribute("user");
+        HashMap map=new HashMap<String,Object>();
+        map.put("corpname",corpname);
+        map.put("customerId",user.getLoginId());
+        List<Customer> querycustomer = customerService.querycustomer(map);
+        if(querycustomer==null||querycustomer.size()==0) {
+
+            httpSession.setAttribute("info", "没有您要查询的公司");
+        }
+
+        httpSession.setAttribute("custmers",querycustomer);
 
         return  "view/customer/customer_list";
     }

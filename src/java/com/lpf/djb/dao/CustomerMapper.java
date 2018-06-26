@@ -4,6 +4,7 @@ package com.lpf.djb.dao;
 import com.lpf.djb.pojo.Customer;
 import com.lpf.djb.pojo.LmUser;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface CustomerMapper {
@@ -27,5 +28,9 @@ public interface CustomerMapper {
 
     int querynewid();
 
+
+
     void insertCustomer(Customer customer);
+
+    List<Customer> querycustomer(HashMap<String,Object> map);
 }

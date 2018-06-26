@@ -239,7 +239,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">所属业务员</label>
                 <div class="col-sm-9">
-                    <input type="text" name="customerSalesmanid" class="form-control input-sm" placeholder="请输入业务员名字（默认登录用户）" value="${sessionScope.user.loginUsercode}"/>
+                    <input type="text" name="customerSalesmanname" class="form-control input-sm" placeholder="请输入业务员名字（默认登录用户）" value="${sessionScope.user.loginUsercode}"/>
                 </div>
             </div>
         </div>
@@ -247,7 +247,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">制单员</label>
                 <div class="col-sm-9">
-                    <input type="text" name="customerSalesmanname" class="form-control input-sm" placeholder="默认登录用户，不可修改" value="${sessionScope.user.loginUsercode}"/>
+                    <input type="text" name="customerMakingpartname" class="form-control input-sm" placeholder="默认登录用户，不可修改" value="${sessionScope.user.loginUsercode}"/>
                 </div>
             </div>
         </div>

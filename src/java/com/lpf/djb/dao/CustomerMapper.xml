@@ -75,33 +75,33 @@
     <!--delete from customer-->
     <!--where customer_id = #{customerId,jdbcType=INTEGER}-->
   <!--</delete>-->
-  <!--<insert id="insert" parameterType="test.model.Customer">-->
-    <!--insert into customer (customer_id, customer_name, customer_invoicename, -->
-      <!--customer_invoiceduty, customer_invoicebank, -->
-      <!--customer_invoiceaccount, customer_invoicetele, -->
-      <!--customer_invoiceaddress, customer_linkman, -->
-      <!--customer_linktele, customer_linkemaile, customer_goodsaddress, -->
-      <!--customer_goodsman, customer_goodstele, customer_goodsemaile, -->
-      <!--customer_ticketaddress, customer_ticketman, -->
-      <!--customer_tickettele, customer_ticketemaile, -->
-      <!--customer_salesmanid, customer_salesmanname, -->
-      <!--customer_makingpartid, customer_makingpartname, -->
-      <!--logistics_special_requirements, customer_createtime, -->
+  <!--<insert id="insert" parameterType="com.lpf.djb.pojo.Customer">-->
+    <!--insert into customer (customer_id, customer_name, customer_invoicename,-->
+      <!--customer_invoiceduty, customer_invoicebank,-->
+      <!--customer_invoiceaccount, customer_invoicetele,-->
+      <!--customer_invoiceaddress, customer_linkman,-->
+      <!--customer_linktele, customer_linkemaile, customer_goodsaddress,-->
+      <!--customer_goodsman, customer_goodstele, customer_goodsemaile,-->
+      <!--customer_ticketaddress, customer_ticketman,-->
+      <!--customer_tickettele, customer_ticketemaile,-->
+      <!--customer_salesmanid, customer_salesmanname,-->
+      <!--customer_makingpartid, customer_makingpartname,-->
+      <!--logistics_special_requirements, customer_createtime,-->
       <!--customer_modifytime, customer_dr)-->
-    <!--values (#{customerId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerInvoicename,jdbcType=VARCHAR}, -->
-      <!--#{customerInvoiceduty,jdbcType=VARCHAR}, #{customerInvoicebank,jdbcType=VARCHAR}, -->
-      <!--#{customerInvoiceaccount,jdbcType=VARCHAR}, #{customerInvoicetele,jdbcType=VARCHAR}, -->
-      <!--#{customerInvoiceaddress,jdbcType=VARCHAR}, #{customerLinkman,jdbcType=VARCHAR}, -->
-      <!--#{customerLinktele,jdbcType=VARCHAR}, #{customerLinkemaile,jdbcType=VARCHAR}, #{customerGoodsaddress,jdbcType=VARCHAR}, -->
-      <!--#{customerGoodsman,jdbcType=VARCHAR}, #{customerGoodstele,jdbcType=VARCHAR}, #{customerGoodsemaile,jdbcType=VARCHAR}, -->
-      <!--#{customerTicketaddress,jdbcType=VARCHAR}, #{customerTicketman,jdbcType=VARCHAR}, -->
-      <!--#{customerTickettele,jdbcType=VARCHAR}, #{customerTicketemaile,jdbcType=VARCHAR}, -->
-      <!--#{customerSalesmanid,jdbcType=INTEGER}, #{customerSalesmanname,jdbcType=VARCHAR}, -->
-      <!--#{customerMakingpartid,jdbcType=INTEGER}, #{customerMakingpartname,jdbcType=VARCHAR}, -->
-      <!--#{logisticsSpecialRequirements,jdbcType=VARCHAR}, #{customerCreatetime,jdbcType=TIMESTAMP}, -->
+    <!--values (#{customerId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerInvoicename,jdbcType=VARCHAR},-->
+      <!--#{customerInvoiceduty,jdbcType=VARCHAR}, #{customerInvoicebank,jdbcType=VARCHAR},-->
+      <!--#{customerInvoiceaccount,jdbcType=VARCHAR}, #{customerInvoicetele,jdbcType=VARCHAR},-->
+      <!--#{customerInvoiceaddress,jdbcType=VARCHAR}, #{customerLinkman,jdbcType=VARCHAR},-->
+      <!--#{customerLinktele,jdbcType=VARCHAR}, #{customerLinkemaile,jdbcType=VARCHAR}, #{customerGoodsaddress,jdbcType=VARCHAR},-->
+      <!--#{customerGoodsman,jdbcType=VARCHAR}, #{customerGoodstele,jdbcType=VARCHAR}, #{customerGoodsemaile,jdbcType=VARCHAR},-->
+      <!--#{customerTicketaddress,jdbcType=VARCHAR}, #{customerTicketman,jdbcType=VARCHAR},-->
+      <!--#{customerTickettele,jdbcType=VARCHAR}, #{customerTicketemaile,jdbcType=VARCHAR},-->
+      <!--#{customerSalesmanid,jdbcType=INTEGER}, #{customerSalesmanname,jdbcType=VARCHAR},-->
+      <!--#{customerMakingpartid,jdbcType=INTEGER}, #{customerMakingpartname,jdbcType=VARCHAR},-->
+      <!--#{logisticsSpecialRequirements,jdbcType=VARCHAR}, #{customerCreatetime,jdbcType=TIMESTAMP},-->
       <!--#{customerModifytime,jdbcType=TIMESTAMP}, #{customerDr,jdbcType=INTEGER})-->
-<!--  </insert>-->
-  <insert id="insertSelective" parameterType="com.lpf.djb.pojo.Customer">
+  <!--</insert>-->
+  <insert id="insertCustomer" parameterType="com.lpf.djb.pojo.Customer" >
     insert into customer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="customerId != null">
@@ -110,63 +110,81 @@
       <if test="customerName != null">
         customer_name,
       </if>
-
+      <if test="customerInvoicename != null">
         customer_invoicename,
-
-
+      </if>
+      <if test="customerInvoiceduty != null">
         customer_invoiceduty,
-
+      </if>
+      <if test="customerInvoicebank != null">
         customer_invoicebank,
-
+      </if>
+      <if test="customerInvoiceaccount != null">
         customer_invoiceaccount,
-
+      </if>
+      <if test="customerInvoicetele != null">
         customer_invoicetele,
-
+      </if>
+      <if test="customerInvoiceaddress != null">
         customer_invoiceaddress,
-
+      </if>
+      <if test="customerLinkman != null">
         customer_linkman,
-
+      </if>
+      <if test="customerLinktele != null">
         customer_linktele,
-
+      </if>
+      <if test="customerLinkemaile != null">
         customer_linkemaile,
-
+      </if>
+      <if test="customerGoodsaddress != null">
         customer_goodsaddress,
-
+      </if>
+      <if test="customerGoodsman != null">
         customer_goodsman,
-
+      </if>
+      <if test="customerGoodstele != null">
         customer_goodstele,
-
+      </if>
+      <if test="customerGoodsemaile != null">
         customer_goodsemaile,
-
+      </if>
+      <if test="customerTicketaddress != null">
         customer_ticketaddress,
-
+      </if>
+      <if test="customerTicketman != null">
         customer_ticketman,
-
+      </if>
+      <if test="customerTickettele != null">
         customer_tickettele,
-
+      </if>
+      <if test="customerTicketemaile != null">
         customer_ticketemaile,
-
+      </if>
+      <if test="customerSalesmanid != null">
         customer_salesmanid,
-
-
+      </if>
+      <if test="customerSalesmanname != null">
         customer_salesmanname,
-
+      </if>
+      <if test="customerMakingpartid != null">
         customer_makingpartid,
-
+      </if>
+      <if test="customerMakingpartname != null">
         customer_makingpartname,
-
-
+      </if>
+      <if test="logisticsSpecialRequirements != null">
         logistics_special_requirements,
-
-
+      </if>
+      <if test="customerCreatetime != null">
         customer_createtime,
-
-
+      </if>
+      <if test="customerModifytime != null">
         customer_modifytime,
-
-
+      </if>
+      <if test="customerDr != null">
         customer_dr,
-
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="customerId != null">
@@ -175,60 +193,94 @@
       <if test="customerName != null">
         #{customerName,jdbcType=VARCHAR},
       </if>
-
+      <if test="customerInvoicename != null">
         #{customerInvoicename,jdbcType=VARCHAR},
-
-
+      </if>
+      <if test="customerInvoiceduty != null">
         #{customerInvoiceduty,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerInvoicebank != null">
         #{customerInvoicebank,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerInvoiceaccount != null">
         #{customerInvoiceaccount,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerInvoicetele != null">
         #{customerInvoicetele,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerInvoiceaddress != null">
         #{customerInvoiceaddress,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerLinkman != null">
         #{customerLinkman,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerLinktele != null">
         #{customerLinktele,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerLinkemaile != null">
         #{customerLinkemaile,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerGoodsaddress != null">
         #{customerGoodsaddress,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerGoodsman != null">
         #{customerGoodsman,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerGoodstele != null">
         #{customerGoodstele,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerGoodsemaile != null">
         #{customerGoodsemaile,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerTicketaddress != null">
         #{customerTicketaddress,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerTicketman != null">
         #{customerTicketman,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerTickettele != null">
         #{customerTickettele,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerTicketemaile != null">
         #{customerTicketemaile,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerSalesmanid != null">
         #{customerSalesmanid,jdbcType=INTEGER},
-
+      </if>
+      <if test="customerSalesmanname != null">
         #{customerSalesmanname,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerMakingpartid != null">
         #{customerMakingpartid,jdbcType=INTEGER},
-
+      </if>
+      <if test="customerMakingpartname != null">
         #{customerMakingpartname,jdbcType=VARCHAR},
-
+      </if>
+      <if test="logisticsSpecialRequirements != null">
         #{logisticsSpecialRequirements,jdbcType=VARCHAR},
-
+      </if>
+      <if test="customerCreatetime != null">
         #{customerCreatetime,jdbcType=TIMESTAMP},
-
+      </if>
+      <if test="customerModifytime != null">
         #{customerModifytime,jdbcType=TIMESTAMP},
-
+      </if>
+      <if test="customerDr != null">
         #{customerDr,jdbcType=INTEGER},
-
+      </if>
     </trim>
   </insert>
+
+
+
+  <select id="querycustomer" parameterType="java.util.HashMap" resultMap="CustomerBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from customer
+    where customer_name like CONCAT('%',#{corpname},'%') and customer_dr=0 and customer_Salesmanid = #{customerId,jdbcType=INTEGER}
+  </select>
+
+
   <!--<update id="updateByPrimaryKeySelective" parameterType="test.model.Customer">-->
     <!--update customer-->
     <!--<set>-->

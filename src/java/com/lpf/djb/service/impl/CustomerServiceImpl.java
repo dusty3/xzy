@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by dusty on 2018/6/23.
@@ -52,6 +54,11 @@ public class CustomerServiceImpl  implements CustomerService{
  /*       customer.getCustomerMakingpartid(customer.getCustomerMakingpartname());*/
         customer.setCustomerSalesmanid(1);
         customerMapper.insertCustomer(customer);
+    }
+
+    @Override
+    public List<Customer> querycustomer(HashMap<String,Object> map) {
+        return customerMapper.querycustomer(map);
     }
 
 
