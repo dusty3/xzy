@@ -1,6 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+                + path + "/";
+    %>
     <title>首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -147,7 +152,7 @@
                 </a>
 
                     <ul class="submenu">
-                        <li><a href="./view/supplier/supplier_list.html" target="mainframe">
+                        <li><a href="<%=basePath%>/supplierview" target="mainframe">
 
                             <i class="icon-double-angle-right"></i> 供应商信息
                         </a></li>
@@ -160,7 +165,7 @@
                 </a>
 
                     <ul class="submenu">
-                        <li><a href="./view/brand/brand_list.html" target="mainframe">
+                        <li><a href="<%=basePath%>/brandview" target="mainframe">
 
                             <i class="icon-double-angle-right"></i> 品牌信息
                         </a></li>
@@ -173,7 +178,7 @@
                 </a>
 
                     <ul class="submenu">
-                        <li><a href="./view/product/product_list.html" target="mainframe">
+                        <li><a href="<%=basePath%>/productview" target="mainframe">
 
                             <i class="icon-double-angle-right"></i> 产品信息
                         </a></li>

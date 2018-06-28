@@ -43,7 +43,9 @@ public class Supplier {
 
     private String supplierCustomernumber;
 
-    private String supplierMakingpart;
+    private Integer supplierMakingpartid;
+
+    private String supplierMakingpartname;
 
     private Date supplierCreatetime;
 
@@ -213,12 +215,20 @@ public class Supplier {
         this.supplierCustomernumber = supplierCustomernumber == null ? null : supplierCustomernumber.trim();
     }
 
-    public String getSupplierMakingpart() {
-        return supplierMakingpart;
+    public Integer getSupplierMakingpartid() {
+        return supplierMakingpartid;
     }
 
-    public void setSupplierMakingpart(String supplierMakingpart) {
-        this.supplierMakingpart = supplierMakingpart == null ? null : supplierMakingpart.trim();
+    public void setSupplierMakingpartid(Integer supplierMakingpartid) {
+        this.supplierMakingpartid = supplierMakingpartid;
+    }
+
+    public String getSupplierMakingpartname() {
+        return supplierMakingpartname;
+    }
+
+    public void setSupplierMakingpartname(String supplierMakingpartname) {
+        this.supplierMakingpartname = supplierMakingpartname == null ? null : supplierMakingpartname.trim();
     }
 
     public Date getSupplierCreatetime() {

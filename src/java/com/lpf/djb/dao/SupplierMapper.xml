@@ -1,7 +1,345 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lpf.djb.dao.SupplierMapper">
-  <resultMap id="supplierbaseesult" type="com.lpf.djb.pojo.Supplier">
+  <resultMap id="SupplierResultMap" type="com.lpf.djb.pojo.Supplier">
+    <id column="supplier_id" jdbcType="INTEGER" property="supplierId" />
+    <result column="supplier_name" jdbcType="VARCHAR" property="supplierName" />
+    <result column="supplier_country" jdbcType="VARCHAR" property="supplierCountry" />
+    <result column="supplier_website" jdbcType="VARCHAR" property="supplierWebsite" />
+    <result column="supplier_inquiryman" jdbcType="VARCHAR" property="supplierInquiryman" />
+    <result column="supplier_inquirytele" jdbcType="VARCHAR" property="supplierInquirytele" />
+    <result column="supplier_inquiryphone" jdbcType="VARCHAR" property="supplierInquiryphone" />
+    <result column="supplier_inquiryfax" jdbcType="VARCHAR" property="supplierInquiryfax" />
+    <result column="supplier_inquiryemail" jdbcType="VARCHAR" property="supplierInquiryemail" />
+    <result column="supplier_orderman" jdbcType="VARCHAR" property="supplierOrderman" />
+    <result column="supplier_ordertele" jdbcType="VARCHAR" property="supplierOrdertele" />
+    <result column="supplier_orderphone" jdbcType="VARCHAR" property="supplierOrderphone" />
+    <result column="supplier_orderfax" jdbcType="VARCHAR" property="supplierOrderfax" />
+    <result column="supplier_orderemail" jdbcType="VARCHAR" property="supplierOrderemail" />
+    <result column="supplier_goodsman" jdbcType="VARCHAR" property="supplierGoodsman" />
+    <result column="supplier_goodstele" jdbcType="VARCHAR" property="supplierGoodstele" />
+    <result column="supplier_goodsphone" jdbcType="VARCHAR" property="supplierGoodsphone" />
+    <result column="supplier_goodsfax" jdbcType="VARCHAR" property="supplierGoodsfax" />
+    <result column="supplier_goodsemail" jdbcType="VARCHAR" property="supplierGoodsemail" />
+    <result column="supplier_customernumber" jdbcType="VARCHAR" property="supplierCustomernumber" />
+    <result column="supplier_makingpartid" jdbcType="INTEGER" property="supplierMakingpartid" />
+    <result column="supplier_makingpartname" jdbcType="VARCHAR" property="supplierMakingpartname" />
+    <result column="supplier_createtime" jdbcType="TIMESTAMP" property="supplierCreatetime" />
+    <result column="supplier_modifytime" jdbcType="TIMESTAMP" property="supplierModifytime" />
+    <result column="supplier_dr" jdbcType="INTEGER" property="supplierDr" />
+    <result column="supplier_description" jdbcType="VARCHAR" property="supplierDescription" />
+  </resultMap>
+  <sql id="Supplier_Base_Column_List">
+    supplier_id, supplier_name, supplier_country, supplier_website, supplier_inquiryman, 
+    supplier_inquirytele, supplier_inquiryphone, supplier_inquiryfax, supplier_inquiryemail, 
+    supplier_orderman, supplier_ordertele, supplier_orderphone, supplier_orderfax, supplier_orderemail, 
+    supplier_goodsman, supplier_goodstele, supplier_goodsphone, supplier_goodsfax, supplier_goodsemail, 
+    supplier_customernumber, supplier_makingpartid, supplier_makingpartname, supplier_createtime, 
+    supplier_modifytime, supplier_dr, supplier_description
+  </sql>
+  <!--
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from supplier
+    where supplier_id = #{supplierId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="test.model.Supplier">
+    insert into supplier (supplier_id, supplier_name, supplier_country, 
+      supplier_website, supplier_inquiryman, supplier_inquirytele, 
+      supplier_inquiryphone, supplier_inquiryfax, 
+      supplier_inquiryemail, supplier_orderman, 
+      supplier_ordertele, supplier_orderphone, 
+      supplier_orderfax, supplier_orderemail, supplier_goodsman, 
+      supplier_goodstele, supplier_goodsphone, 
+      supplier_goodsfax, supplier_goodsemail, supplier_customernumber, 
+      supplier_makingpartid, supplier_makingpartname, 
+      supplier_createtime, supplier_modifytime, 
+      supplier_dr, supplier_description)
+    values (#{supplierId,jdbcType=INTEGER}, #{supplierName,jdbcType=VARCHAR}, #{supplierCountry,jdbcType=VARCHAR}, 
+      #{supplierWebsite,jdbcType=VARCHAR}, #{supplierInquiryman,jdbcType=VARCHAR}, #{supplierInquirytele,jdbcType=VARCHAR}, 
+      #{supplierInquiryphone,jdbcType=VARCHAR}, #{supplierInquiryfax,jdbcType=VARCHAR}, 
+      #{supplierInquiryemail,jdbcType=VARCHAR}, #{supplierOrderman,jdbcType=VARCHAR}, 
+      #{supplierOrdertele,jdbcType=VARCHAR}, #{supplierOrderphone,jdbcType=VARCHAR}, 
+      #{supplierOrderfax,jdbcType=VARCHAR}, #{supplierOrderemail,jdbcType=VARCHAR}, #{supplierGoodsman,jdbcType=VARCHAR}, 
+      #{supplierGoodstele,jdbcType=VARCHAR}, #{supplierGoodsphone,jdbcType=VARCHAR}, 
+      #{supplierGoodsfax,jdbcType=VARCHAR}, #{supplierGoodsemail,jdbcType=VARCHAR}, #{supplierCustomernumber,jdbcType=VARCHAR}, 
+      #{supplierMakingpartid,jdbcType=INTEGER}, #{supplierMakingpartname,jdbcType=VARCHAR}, 
+      #{supplierCreatetime,jdbcType=TIMESTAMP}, #{supplierModifytime,jdbcType=TIMESTAMP}, 
+      #{supplierDr,jdbcType=INTEGER}, #{supplierDescription,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="test.model.Supplier">
+    insert into supplier
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="supplierName != null">
+        supplier_name,
+      </if>
+      <if test="supplierCountry != null">
+        supplier_country,
+      </if>
+      <if test="supplierWebsite != null">
+        supplier_website,
+      </if>
+      <if test="supplierInquiryman != null">
+        supplier_inquiryman,
+      </if>
+      <if test="supplierInquirytele != null">
+        supplier_inquirytele,
+      </if>
+      <if test="supplierInquiryphone != null">
+        supplier_inquiryphone,
+      </if>
+      <if test="supplierInquiryfax != null">
+        supplier_inquiryfax,
+      </if>
+      <if test="supplierInquiryemail != null">
+        supplier_inquiryemail,
+      </if>
+      <if test="supplierOrderman != null">
+        supplier_orderman,
+      </if>
+      <if test="supplierOrdertele != null">
+        supplier_ordertele,
+      </if>
+      <if test="supplierOrderphone != null">
+        supplier_orderphone,
+      </if>
+      <if test="supplierOrderfax != null">
+        supplier_orderfax,
+      </if>
+      <if test="supplierOrderemail != null">
+        supplier_orderemail,
+      </if>
+      <if test="supplierGoodsman != null">
+        supplier_goodsman,
+      </if>
+      <if test="supplierGoodstele != null">
+        supplier_goodstele,
+      </if>
+      <if test="supplierGoodsphone != null">
+        supplier_goodsphone,
+      </if>
+      <if test="supplierGoodsfax != null">
+        supplier_goodsfax,
+      </if>
+      <if test="supplierGoodsemail != null">
+        supplier_goodsemail,
+      </if>
+      <if test="supplierCustomernumber != null">
+        supplier_customernumber,
+      </if>
+      <if test="supplierMakingpartid != null">
+        supplier_makingpartid,
+      </if>
+      <if test="supplierMakingpartname != null">
+        supplier_makingpartname,
+      </if>
+      <if test="supplierCreatetime != null">
+        supplier_createtime,
+      </if>
+      <if test="supplierModifytime != null">
+        supplier_modifytime,
+      </if>
+      <if test="supplierDr != null">
+        supplier_dr,
+      </if>
+      <if test="supplierDescription != null">
+        supplier_description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="supplierName != null">
+        #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCountry != null">
+        #{supplierCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierWebsite != null">
+        #{supplierWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquiryman != null">
+        #{supplierInquiryman,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquirytele != null">
+        #{supplierInquirytele,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquiryphone != null">
+        #{supplierInquiryphone,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquiryfax != null">
+        #{supplierInquiryfax,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquiryemail != null">
+        #{supplierInquiryemail,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrderman != null">
+        #{supplierOrderman,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrdertele != null">
+        #{supplierOrdertele,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrderphone != null">
+        #{supplierOrderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrderfax != null">
+        #{supplierOrderfax,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrderemail != null">
+        #{supplierOrderemail,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodsman != null">
+        #{supplierGoodsman,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodstele != null">
+        #{supplierGoodstele,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodsphone != null">
+        #{supplierGoodsphone,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodsfax != null">
+        #{supplierGoodsfax,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodsemail != null">
+        #{supplierGoodsemail,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCustomernumber != null">
+        #{supplierCustomernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierMakingpartid != null">
+        #{supplierMakingpartid,jdbcType=INTEGER},
+      </if>
+      <if test="supplierMakingpartname != null">
+        #{supplierMakingpartname,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCreatetime != null">
+        #{supplierCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierModifytime != null">
+        #{supplierModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierDr != null">
+        #{supplierDr,jdbcType=INTEGER},
+      </if>
+      <if test="supplierDescription != null">
+        #{supplierDescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="test.model.Supplier">
+    update supplier
+    <set>
+      <if test="supplierName != null">
+        supplier_name = #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCountry != null">
+        supplier_country = #{supplierCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierWebsite != null">
+        supplier_website = #{supplierWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquiryman != null">
+        supplier_inquiryman = #{supplierInquiryman,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquirytele != null">
+        supplier_inquirytele = #{supplierInquirytele,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquiryphone != null">
+        supplier_inquiryphone = #{supplierInquiryphone,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquiryfax != null">
+        supplier_inquiryfax = #{supplierInquiryfax,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierInquiryemail != null">
+        supplier_inquiryemail = #{supplierInquiryemail,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrderman != null">
+        supplier_orderman = #{supplierOrderman,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrdertele != null">
+        supplier_ordertele = #{supplierOrdertele,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrderphone != null">
+        supplier_orderphone = #{supplierOrderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrderfax != null">
+        supplier_orderfax = #{supplierOrderfax,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierOrderemail != null">
+        supplier_orderemail = #{supplierOrderemail,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodsman != null">
+        supplier_goodsman = #{supplierGoodsman,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodstele != null">
+        supplier_goodstele = #{supplierGoodstele,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodsphone != null">
+        supplier_goodsphone = #{supplierGoodsphone,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodsfax != null">
+        supplier_goodsfax = #{supplierGoodsfax,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierGoodsemail != null">
+        supplier_goodsemail = #{supplierGoodsemail,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCustomernumber != null">
+        supplier_customernumber = #{supplierCustomernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierMakingpartid != null">
+        supplier_makingpartid = #{supplierMakingpartid,jdbcType=INTEGER},
+      </if>
+      <if test="supplierMakingpartname != null">
+        supplier_makingpartname = #{supplierMakingpartname,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCreatetime != null">
+        supplier_createtime = #{supplierCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierModifytime != null">
+        supplier_modifytime = #{supplierModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierDr != null">
+        supplier_dr = #{supplierDr,jdbcType=INTEGER},
+      </if>
+      <if test="supplierDescription != null">
+        supplier_description = #{supplierDescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where supplier_id = #{supplierId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="test.model.Supplier">
+    update supplier
+    set supplier_name = #{supplierName,jdbcType=VARCHAR},
+      supplier_country = #{supplierCountry,jdbcType=VARCHAR},
+      supplier_website = #{supplierWebsite,jdbcType=VARCHAR},
+      supplier_inquiryman = #{supplierInquiryman,jdbcType=VARCHAR},
+      supplier_inquirytele = #{supplierInquirytele,jdbcType=VARCHAR},
+      supplier_inquiryphone = #{supplierInquiryphone,jdbcType=VARCHAR},
+      supplier_inquiryfax = #{supplierInquiryfax,jdbcType=VARCHAR},
+      supplier_inquiryemail = #{supplierInquiryemail,jdbcType=VARCHAR},
+      supplier_orderman = #{supplierOrderman,jdbcType=VARCHAR},
+      supplier_ordertele = #{supplierOrdertele,jdbcType=VARCHAR},
+      supplier_orderphone = #{supplierOrderphone,jdbcType=VARCHAR},
+      supplier_orderfax = #{supplierOrderfax,jdbcType=VARCHAR},
+      supplier_orderemail = #{supplierOrderemail,jdbcType=VARCHAR},
+      supplier_goodsman = #{supplierGoodsman,jdbcType=VARCHAR},
+      supplier_goodstele = #{supplierGoodstele,jdbcType=VARCHAR},
+      supplier_goodsphone = #{supplierGoodsphone,jdbcType=VARCHAR},
+      supplier_goodsfax = #{supplierGoodsfax,jdbcType=VARCHAR},
+      supplier_goodsemail = #{supplierGoodsemail,jdbcType=VARCHAR},
+      supplier_customernumber = #{supplierCustomernumber,jdbcType=VARCHAR},
+      supplier_makingpartid = #{supplierMakingpartid,jdbcType=INTEGER},
+      supplier_makingpartname = #{supplierMakingpartname,jdbcType=VARCHAR},
+      supplier_createtime = #{supplierCreatetime,jdbcType=TIMESTAMP},
+      supplier_modifytime = #{supplierModifytime,jdbcType=TIMESTAMP},
+      supplier_dr = #{supplierDr,jdbcType=INTEGER},
+      supplier_description = #{supplierDescription,jdbcType=VARCHAR}
+    where supplier_id = #{supplierId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="test.model.Supplier">
     <id column="supplier_id" jdbcType="INTEGER" property="supplierId" />
     <result column="supplier_name" jdbcType="VARCHAR" property="supplierName" />
     <result column="supplier_country" jdbcType="VARCHAR" property="supplierCountry" />
@@ -28,7 +366,7 @@
     <result column="supplier_dr" jdbcType="INTEGER" property="supplierDr" />
     <result column="supplier_description" jdbcType="VARCHAR" property="supplierDescription" />
   </resultMap>
-  <!--<sql id="Base_Column_List">
+  <sql id="Base_Column_List">
     supplier_id, supplier_name, supplier_country, supplier_website, supplier_inquiryman, 
     supplier_inquirytele, supplier_inquiryphone, supplier_inquiryfax, supplier_inquiryemail, 
     supplier_orderman, supplier_ordertele, supplier_orderphone, supplier_orderfax, supplier_orderemail, 
@@ -46,30 +384,7 @@
     delete from supplier
     where supplier_id = #{supplierId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="test.model.Supplier">
-    insert into supplier (supplier_id, supplier_name, supplier_country, 
-      supplier_website, supplier_inquiryman, supplier_inquirytele, 
-      supplier_inquiryphone, supplier_inquiryfax, 
-      supplier_inquiryemail, supplier_orderman, 
-      supplier_ordertele, supplier_orderphone, 
-      supplier_orderfax, supplier_orderemail, supplier_goodsman, 
-      supplier_goodstele, supplier_goodsphone, 
-      supplier_goodsfax, supplier_goodsemail, supplier_customernumber, 
-      supplier_makingpart, supplier_createtime, 
-      supplier_modifytime, supplier_dr, supplier_description
-      )
-    values (#{supplierId,jdbcType=INTEGER}, #{supplierName,jdbcType=VARCHAR}, #{supplierCountry,jdbcType=VARCHAR}, 
-      #{supplierWebsite,jdbcType=VARCHAR}, #{supplierInquiryman,jdbcType=VARCHAR}, #{supplierInquirytele,jdbcType=VARCHAR}, 
-      #{supplierInquiryphone,jdbcType=VARCHAR}, #{supplierInquiryfax,jdbcType=VARCHAR}, 
-      #{supplierInquiryemail,jdbcType=VARCHAR}, #{supplierOrderman,jdbcType=VARCHAR}, 
-      #{supplierOrdertele,jdbcType=VARCHAR}, #{supplierOrderphone,jdbcType=VARCHAR}, 
-      #{supplierOrderfax,jdbcType=VARCHAR}, #{supplierOrderemail,jdbcType=VARCHAR}, #{supplierGoodsman,jdbcType=VARCHAR}, 
-      #{supplierGoodstele,jdbcType=VARCHAR}, #{supplierGoodsphone,jdbcType=VARCHAR}, 
-      #{supplierGoodsfax,jdbcType=VARCHAR}, #{supplierGoodsemail,jdbcType=VARCHAR}, #{supplierCustomernumber,jdbcType=VARCHAR}, 
-      #{supplierMakingpart,jdbcType=VARCHAR}, #{supplierCreatetime,jdbcType=TIMESTAMP}, 
-      #{supplierModifytime,jdbcType=TIMESTAMP}, #{supplierDr,jdbcType=INTEGER}, #{supplierDescription,jdbcType=VARCHAR}
-      )
-  </insert>
+
   <insert id="insertSelective" parameterType="test.model.Supplier">
     insert into supplier
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -305,32 +620,99 @@
     </set>
     where supplier_id = #{supplierId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="test.model.Supplier">
+ -->
+
+
+  <select id="loadingsupplier" parameterType="com.lpf.djb.pojo.LmUser" resultMap="SupplierResultMap">
+    select
+    <include refid="Supplier_Base_Column_List" />
+    from supplier
+    where   supplier_dr=0
+  </select>
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="SupplierResultMap">
+    select
+    <include refid="Supplier_Base_Column_List" />
+    from supplier
+    where supplier_id = #{supplierId,jdbcType=INTEGER}
+  </select>
+
+
+  <update id="updateSupplier" parameterType="com.lpf.djb.pojo.Supplier">
     update supplier
     set supplier_name = #{supplierName,jdbcType=VARCHAR},
-      supplier_country = #{supplierCountry,jdbcType=VARCHAR},
-      supplier_website = #{supplierWebsite,jdbcType=VARCHAR},
-      supplier_inquiryman = #{supplierInquiryman,jdbcType=VARCHAR},
-      supplier_inquirytele = #{supplierInquirytele,jdbcType=VARCHAR},
-      supplier_inquiryphone = #{supplierInquiryphone,jdbcType=VARCHAR},
-      supplier_inquiryfax = #{supplierInquiryfax,jdbcType=VARCHAR},
-      supplier_inquiryemail = #{supplierInquiryemail,jdbcType=VARCHAR},
-      supplier_orderman = #{supplierOrderman,jdbcType=VARCHAR},
-      supplier_ordertele = #{supplierOrdertele,jdbcType=VARCHAR},
-      supplier_orderphone = #{supplierOrderphone,jdbcType=VARCHAR},
-      supplier_orderfax = #{supplierOrderfax,jdbcType=VARCHAR},
-      supplier_orderemail = #{supplierOrderemail,jdbcType=VARCHAR},
-      supplier_goodsman = #{supplierGoodsman,jdbcType=VARCHAR},
-      supplier_goodstele = #{supplierGoodstele,jdbcType=VARCHAR},
-      supplier_goodsphone = #{supplierGoodsphone,jdbcType=VARCHAR},
-      supplier_goodsfax = #{supplierGoodsfax,jdbcType=VARCHAR},
-      supplier_goodsemail = #{supplierGoodsemail,jdbcType=VARCHAR},
-      supplier_customernumber = #{supplierCustomernumber,jdbcType=VARCHAR},
-      supplier_makingpart = #{supplierMakingpart,jdbcType=VARCHAR},
-      supplier_createtime = #{supplierCreatetime,jdbcType=TIMESTAMP},
-      supplier_modifytime = #{supplierModifytime,jdbcType=TIMESTAMP},
-      supplier_dr = #{supplierDr,jdbcType=INTEGER},
-      supplier_description = #{supplierDescription,jdbcType=VARCHAR}
+    supplier_country = #{supplierCountry,jdbcType=VARCHAR},
+    supplier_website = #{supplierWebsite,jdbcType=VARCHAR},
+    supplier_inquiryman = #{supplierInquiryman,jdbcType=VARCHAR},
+    supplier_inquirytele = #{supplierInquirytele,jdbcType=VARCHAR},
+    supplier_inquiryphone = #{supplierInquiryphone,jdbcType=VARCHAR},
+    supplier_inquiryfax = #{supplierInquiryfax,jdbcType=VARCHAR},
+    supplier_inquiryemail = #{supplierInquiryemail,jdbcType=VARCHAR},
+    supplier_orderman = #{supplierOrderman,jdbcType=VARCHAR},
+    supplier_ordertele = #{supplierOrdertele,jdbcType=VARCHAR},
+    supplier_orderphone = #{supplierOrderphone,jdbcType=VARCHAR},
+    supplier_orderfax = #{supplierOrderfax,jdbcType=VARCHAR},
+    supplier_orderemail = #{supplierOrderemail,jdbcType=VARCHAR},
+    supplier_goodsman = #{supplierGoodsman,jdbcType=VARCHAR},
+    supplier_goodstele = #{supplierGoodstele,jdbcType=VARCHAR},
+    supplier_goodsphone = #{supplierGoodsphone,jdbcType=VARCHAR},
+    supplier_goodsfax = #{supplierGoodsfax,jdbcType=VARCHAR},
+    supplier_goodsemail = #{supplierGoodsemail,jdbcType=VARCHAR},
+    supplier_customernumber = #{supplierCustomernumber,jdbcType=VARCHAR},
+    supplier_makingpartid = #{supplierMakingpartid,jdbcType=VARCHAR},
+    supplier_Makingpartname = #{supplierMakingpartname,jdbcType=VARCHAR},
+    supplier_createtime = #{supplierCreatetime,jdbcType=TIMESTAMP},
+    supplier_modifytime = #{supplierModifytime,jdbcType=TIMESTAMP},
+    supplier_dr = #{supplierDr,jdbcType=INTEGER},
+    supplier_description = #{supplierDescription,jdbcType=VARCHAR}
     where supplier_id = #{supplierId,jdbcType=INTEGER}
-  </update>-->
+  </update>
+
+
+  <update id="delsupplier" parameterType="java.lang.Integer">
+    update supplier set
+    supplier_dr = 1
+    where supplier_id = #{supplierId,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="querySuppliernewid" resultType="java.lang.Integer">
+    SELECT  max(supplier_id) from supplier
+  </select>
+
+
+
+  <insert id="insertsupplier" parameterType="com.lpf.djb.pojo.Supplier">
+    insert into supplier (supplier_id, supplier_name, supplier_country,
+    supplier_website, supplier_inquiryman, supplier_inquirytele,
+    supplier_inquiryphone, supplier_inquiryfax,
+    supplier_inquiryemail, supplier_orderman,
+    supplier_ordertele, supplier_orderphone,
+    supplier_orderfax, supplier_orderemail, supplier_goodsman,
+    supplier_goodstele, supplier_goodsphone,
+    supplier_goodsfax, supplier_goodsemail, supplier_customernumber,
+    supplier_makingpartname, supplier_createtime,
+    supplier_modifytime, supplier_dr, supplier_description
+    )
+    values (#{supplierId,jdbcType=INTEGER}, #{supplierName,jdbcType=VARCHAR}, #{supplierCountry,jdbcType=VARCHAR},
+    #{supplierWebsite,jdbcType=VARCHAR}, #{supplierInquiryman,jdbcType=VARCHAR}, #{supplierInquirytele,jdbcType=VARCHAR},
+    #{supplierInquiryphone,jdbcType=VARCHAR}, #{supplierInquiryfax,jdbcType=VARCHAR},
+    #{supplierInquiryemail,jdbcType=VARCHAR}, #{supplierOrderman,jdbcType=VARCHAR},
+    #{supplierOrdertele,jdbcType=VARCHAR}, #{supplierOrderphone,jdbcType=VARCHAR},
+    #{supplierOrderfax,jdbcType=VARCHAR}, #{supplierOrderemail,jdbcType=VARCHAR}, #{supplierGoodsman,jdbcType=VARCHAR},
+    #{supplierGoodstele,jdbcType=VARCHAR}, #{supplierGoodsphone,jdbcType=VARCHAR},
+    #{supplierGoodsfax,jdbcType=VARCHAR}, #{supplierGoodsemail,jdbcType=VARCHAR}, #{supplierCustomernumber,jdbcType=VARCHAR},
+    #{supplierMakingpartname,jdbcType=VARCHAR}, #{supplierCreatetime,jdbcType=TIMESTAMP},
+    #{supplierModifytime,jdbcType=TIMESTAMP}, #{supplierDr,jdbcType=INTEGER}, #{supplierDescription,jdbcType=VARCHAR}
+    )
+  </insert>
+
+
+  <select id="querysupplier" parameterType="java.util.HashMap" resultMap="SupplierResultMap">
+    select
+    <include refid="Supplier_Base_Column_List" />
+    from supplier
+    where supplier_name like CONCAT('%',#{supplierName},'%') and supplier_Dr=0
+  </select>
 </mapper>
