@@ -38,6 +38,29 @@
                 }
             }
         }
+
+        function delRow(obj)
+        {
+
+            $(obj).parent().parent().remove();
+        }
+
+//        $("create1").click(function(){
+//
+//
+//                document.txt.innerHTML+=
+//                "<table id='table1' style='border-collapse:separate; border-spacing:5px 5px;'>"
+//                +"<tr>"
+//                +"<td><input type='checkbox' name='selectone' /></td>"
+//                +"<td><input type='text' name='product_foreignname' placeholder='请输入外文品名' size='50'/></td>"
+//                +"<td><input type='text' name='product_type' placeholder='请输入型号' size='50' /></td>"
+//                +"<td><input type='text' name='inquiry_number'  placeholder='请输入数量' size='20'/></td>"
+//                +"<td><input type='button' value='删除' onclick=' delRow(this)'/></td>"
+//                +"</tr>"
+//                +"</table>"
+//        }
+
+
     </script>
 </head>
 
@@ -119,38 +142,40 @@
         <span class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">产品信息</span>
 
         <span style="padding:10px; margin:0px; margin-bottom:5px;">
-
-           <a href="javascript:void(document.txt.innerHTML+='<table id=\'table1\' style=\'border-collapse:separate; border-spacing:10px 10px;\'><tr><td> <input type=\'checkbox\' name=\'selectone\' /> <input type=\'text\' name=\'product_foreignname\' /><input type=\'text\' name=\'product_type\' /><input type=\'text\' name=\'inquiry_number\' /> <td> </tr></table>')">添加</a>
-
+            <input type="button" value="添加" onclick="addNew();">
+          <a href="javascript:void(document.txt.innerHTML+='<table id=\'table1\' style=\'border-collapse:separate; border-spacing:5px 5px;\'><tr><td> <input type=\'checkbox\' name=\'selectone\' /></td> <td><input type=\'text\' name=\'product_foreignname\' placeholder=\'请输入外文品名\' size=\'50\'/></td> <td><input type=\'text\' name=\'product_type\' placeholder=\'请输入型号\' size=\'50\' /></td> <td><input type=\'text\' name=\'inquiry_number\'  placeholder=\'请输入数量\' size=\'20\'/> </td> <td><input type=\'button\' value=\'删除\' onclick=\' delRow(this)\'/></td> </tr> </table>')">添加一行</a>
+<!--<a click="create1">添加一行</a>-->
 
 
         </span>
 
-        <span style="padding:10px; margin:0px; margin-bottom:5px;">删除</span>
+        <!--<span style="padding:10px; margin:0px; margin-bottom:5px;">删除</span>-->
 
 
 
     </div>
 
     <div class="row" style="padding:15px; padding-top:0px; ">
-        <table id="table1" style="border-collapse:separate; border-spacing:10px 10px;">
+        <table id="table0" style="border-collapse:separate; border-spacing:5px 5px;">
+            <tbody  id="table1">
             <tr>
-                <th><input type="checkbox" id="selectone" />
-                    <span class="allSel" id="allSel">全选</span></th>
+                <!--<th><input type="checkbox" id="selectone" /><span class="allSel" id="allSel">全选</span></th>-->
+                <th><input type="checkbox" id="selectone" /></th>
                 <th>外文品名</th>
                 <th>型号</th>
                 <th>数量</th>
-                <td></td>
+                <th></th>
             </tr>
 
-            <tr  class="row-status-default" id="table_DETAIL_1" status="new">
+            <tr  class="row-status-default" id="table_DETAIL_1">
                 <td><input type="checkbox" name="selectone" /></td>
-                <td><input type="text" name=""  placeholder="请输入外文品名"  size="50"/></td>
-                <td><input type="text" name=""  placeholder="请输入型号" size="50" /></td>
-                <td><input type="text" name=""  placeholder="请输入数量" size="20"/></td>
+                <td><input type="text" name="product_foreignname"  placeholder="请输入外文品名"  size="50"/></td>
+                <td><input type="text" name="product_type"  placeholder="请输入型号" size="50" /></td>
+                <td><input type="text" name="inquiry_number"  placeholder="请输入数量" size="20"/></td>
                 <td></td>
 
             </tr>
+            </tbody>
         </table>
     </div>
 
