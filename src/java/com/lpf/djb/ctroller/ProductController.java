@@ -1,6 +1,7 @@
 package com.lpf.djb.ctroller;
 
 import com.lpf.djb.pojo.Brand;
+import com.lpf.djb.pojo.Customer;
 import com.lpf.djb.pojo.LmUser;
 import com.lpf.djb.pojo.Product;
 import com.lpf.djb.service.serviceInterface.BrandService;
@@ -46,29 +47,32 @@ public class ProductController {
     @RequestMapping(value = "updateproduct",method = RequestMethod.POST)
     public String  updateproduct(@ModelAttribute Product product, HttpSession httpSession, Model model){
 
+/*        Product product1 = productService.queryByid(product.getProductId());
+        if(!product1.getProductId().equals(product.getProductId())) {
+            Boolean isexsit = productService.productnameisexist(product.getp);
+            if (isexsit) {
+                model.addAttribute("info", "公司名已存在");
+                return "view/customer/customer_update";
+            }
+        }*/
 
-        //少了校验控制
         productService.updateProduct(product);
 
-        httpSession.setAttribute("info","修改成功！");
 
         LmUser user = (LmUser) httpSession.getAttribute("user");
         List<Product> loadingProduct = productService.loadingProduct(user);
         httpSession.setAttribute("products",loadingProduct);
-
+//        model.addAttribute("info","修改成功");
         return  "view/product/product_list";
     }
 
     @RequestMapping(value = "/deleteproduct",method = RequestMethod.GET)
     public String  deleteproduct(@RequestParam("productId") String productId, HttpSession httpSession, Model model){
         productService.delProduct(Integer.valueOf(productId));
-
-        httpSession.setAttribute("info","删除成功！");
-
         LmUser user = (LmUser) httpSession.getAttribute("user");
         List<Product> loadingProduct = productService.loadingProduct(user);
         httpSession.setAttribute("products",loadingProduct);
-
+        model.addAttribute("info","删除成功");
         return  "view/product/product_list";
     }
 
@@ -88,13 +92,10 @@ public class ProductController {
 
 
         productService.insertProduct(product);
-
-        httpSession.setAttribute("info","添加成功！");
-
         LmUser user = (LmUser) httpSession.getAttribute("user");
         List<Product> loadingProduct = productService.loadingProduct(user);
         httpSession.setAttribute("products",loadingProduct);
-
+        model.addAttribute("info","添加成功");
         return  "view/product/product_list";
     }
 

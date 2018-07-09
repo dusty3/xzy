@@ -172,18 +172,18 @@
                     </ul>
                 </li>
 
-                <li><a href="javascript:void(0)" target="mainframe" class="dropdown-toggle">
-                    <i class="icon-desktop"></i>
-                    <span class="menu-text"> 产品管理 </span> <b class="arrow icon-angle-down"></b>
-                </a>
+                <%--<li><a href="javascript:void(0)" target="mainframe" class="dropdown-toggle">--%>
+                    <%--<i class="icon-desktop"></i>--%>
+                    <%--<span class="menu-text"> 产品管理 </span> <b class="arrow icon-angle-down"></b>--%>
+                <%--</a>--%>
 
-                    <ul class="submenu">
-                        <li><a href="<%=basePath%>/productview" target="mainframe">
+                    <%--<ul class="submenu">--%>
+                        <%--<li><a href="<%=basePath%>/productview" target="mainframe">--%>
 
-                            <i class="icon-double-angle-right"></i> 产品信息
-                        </a></li>
-                    </ul>
-                </li>
+                            <%--<i class="icon-double-angle-right"></i> 产品信息--%>
+                        <%--</a></li>--%>
+                    <%--</ul>--%>
+                <%--</li>--%>
 
 
                 <li><a href="javascript:void(0)" target="mainframe"
@@ -192,44 +192,44 @@
                 </a>
 
                     <ul class="submenu">
-                        <li><a href="#" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 1
-                        </a></li>
-
+                        <li><a href="<%=basePath%>/inquiryview" target="mainframe"> <i
+                                class="icon-double-angle-right"></i> 我的询价</a></li>
+                        <li><a href="<%=basePath%>/inquiryrefer" target="mainframe"> <i
+                                class="icon-double-angle-right"></i> 询价记录</a></li>
                     </ul>
                 </li>
 
-                <li><a href="javascript:void(0)" target="mainframe"
-                       class="dropdown-toggle"> <i class="icon-desktop"></i> <span
-                        class="menu-text"> 报价模块 </span> <b class="arrow icon-angle-down"></b>
-                </a>
+                <%--<li><a href="javascript:void(0)" target="mainframe"--%>
+                       <%--class="dropdown-toggle"> <i class="icon-desktop"></i> <span--%>
+                        <%--class="menu-text"> 报价模块 </span> <b class="arrow icon-angle-down"></b>--%>
+                <%--</a>--%>
 
-                    <ul class="submenu">
-                        <li><a href="#" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 1
-                        </a></li>
-                        <li><a href="#" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 2
-                        </a></li>
+                    <%--<ul class="submenu">--%>
+                        <%--<li><a href="#" target="mainframe"> <i--%>
+                                <%--class="icon-double-angle-right"></i> 1--%>
+                        <%--</a></li>--%>
+                        <%--<li><a href="#" target="mainframe"> <i--%>
+                                <%--class="icon-double-angle-right"></i> 2--%>
+                        <%--</a></li>--%>
 
-                    </ul>
-                </li>
+                    <%--</ul>--%>
+                <%--</li>--%>
 
-                <li><a href="javascript:void(0)" target="mainframe"
-                       class="dropdown-toggle"> <i class="icon-desktop"></i> <span
-                        class="menu-text"> 合同模块 </span> <b class="arrow icon-angle-down"></b>
-                </a>
+                <%--<li><a href="javascript:void(0)" target="mainframe"--%>
+                       <%--class="dropdown-toggle"> <i class="icon-desktop"></i> <span--%>
+                        <%--class="menu-text"> 合同模块 </span> <b class="arrow icon-angle-down"></b>--%>
+                <%--</a>--%>
 
-                    <ul class="submenu">
-                        <li><a href="#" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 1
-                        </a></li>
-                        <li><a href="#" target="mainframe"> <i
-                                class="icon-double-angle-right"></i> 2
-                        </a></li>
+                    <%--<ul class="submenu">--%>
+                        <%--<li><a href="#" target="mainframe"> <i--%>
+                                <%--class="icon-double-angle-right"></i> 1--%>
+                        <%--</a></li>--%>
+                        <%--<li><a href="#" target="mainframe"> <i--%>
+                                <%--class="icon-double-angle-right"></i> 2--%>
+                        <%--</a></li>--%>
 
-                    </ul>
-                </li>
+                    <%--</ul>--%>
+                <%--</li>--%>
             </ul>
             <!-- /.nav-list -->
 

@@ -7,6 +7,7 @@ import com.lpf.djb.service.serviceInterface.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +32,9 @@ public class CustomerServiceImpl  implements CustomerService{
     @Override
     public void updateCustomer(Customer customer) {
         Date date=new Date();
-        customer.setCustomerModifytime(date);
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        customer.setCustomerModifytime(format.format(date));
         customer.setCustomerDr(0);
         customerMapper.updateCustomer(customer);
     }
@@ -50,15 +53,29 @@ public class CustomerServiceImpl  implements CustomerService{
     public void insertCustomer(Customer customer) {
         customer.setCustomerDr(0);
         Date date=new Date();
-        customer.setCustomerCreatetime(date);
- /*       customer.getCustomerMakingpartid(customer.getCustomerMakingpartname());*/
-        customer.setCustomerSalesmanid(1);
+        SimpleDateFormat  format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        customer.setCustomerCreatetime(format.format(date));
         customerMapper.insertCustomer(customer);
     }
 
     @Override
     public List<Customer> querycustomer(HashMap<String,Object> map) {
         return customerMapper.querycustomer(map);
+    }
+
+    @Override
+    public Customer fillcutomer(HashMap map) {
+        return customerMapper.fillcutomer(map);
+    }
+
+    @Override
+    public Boolean customerisexist(String customerName) {
+        List<Customer> findcustomerbyname = customerMapper.findcustomerbyname(customerName);
+        if(findcustomerbyname==null||findcustomerbyname.size()==0){
+            return  false;
+        }else{
+            return  true;
+        }
     }
 
 

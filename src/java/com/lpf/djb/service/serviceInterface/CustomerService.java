@@ -30,4 +30,8 @@ public interface CustomerService {
      * @return
      */
     public List<Customer>   querycustomer(HashMap<String,Object> map);
+
+    Customer fillcutomer(HashMap map);
+
+    Boolean customerisexist(String customerName);
 }

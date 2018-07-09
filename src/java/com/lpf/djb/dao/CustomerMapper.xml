@@ -260,10 +260,10 @@
         #{logisticsSpecialRequirements,jdbcType=VARCHAR},
       </if>
       <if test="customerCreatetime != null">
-        #{customerCreatetime,jdbcType=TIMESTAMP},
+        #{customerCreatetime},
       </if>
       <if test="customerModifytime != null">
-        #{customerModifytime,jdbcType=TIMESTAMP},
+        #{customerModifytime},
       </if>
       <if test="customerDr != null">
         #{customerDr,jdbcType=INTEGER},
@@ -385,14 +385,27 @@
       customer_ticketman = #{customerTicketman,jdbcType=VARCHAR},
       customer_tickettele = #{customerTickettele,jdbcType=VARCHAR},
       customer_ticketemaile = #{customerTicketemaile,jdbcType=VARCHAR},
-      customer_salesmanid = #{customerSalesmanid,jdbcType=INTEGER},
-      customer_salesmanname = #{customerSalesmanname,jdbcType=VARCHAR},
-      customer_makingpartid = #{customerMakingpartid,jdbcType=INTEGER},
-      customer_makingpartname = #{customerMakingpartname,jdbcType=VARCHAR},
       logistics_special_requirements = #{logisticsSpecialRequirements,jdbcType=VARCHAR},
-      customer_createtime = #{customerCreatetime,jdbcType=TIMESTAMP},
-      customer_modifytime = #{customerModifytime,jdbcType=TIMESTAMP},
+      customer_modifytime = #{customerModifytime},
       customer_dr = #{customerDr,jdbcType=INTEGER}
     where customer_id = #{customerId,jdbcType=INTEGER}
   </update>
+
+
+  <select id="fillcutomer" parameterType="java.util.HashMap" resultMap="CustomerBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from customer
+    where customer_name =#{customername} and customer_dr=0
+  </select>
+
+
+  <select id="findcustomerbyname" parameterType="java.lang.String" resultMap="CustomerBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from customer
+    where customer_name =#{customername} and customer_dr=0
+  </select>
+
+
 </mapper>

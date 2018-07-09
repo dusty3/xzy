@@ -32,4 +32,10 @@ public interface BrandMapper {
     List<Brand> queryBrand(HashMap map);
 
     void insertBrand(Brand supplier);
+
+    Brand fillbrand(HashMap map);
+
+    List<Brand> findbrandbyname(String brandName);
+
+    Brand querybyname(String brandName);
 }

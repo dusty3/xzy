@@ -19,9 +19,9 @@ public class Brand {
 
     private String brandDescription;
 
-    private Date brandCreatetime;
+    private String brandCreatetime;
 
-    private Date brandModifytime;
+    private String brandModifytime;
 
     private Integer brandMakingpartid;
 
@@ -93,19 +93,19 @@ public class Brand {
         this.brandDescription = brandDescription == null ? null : brandDescription.trim();
     }
 
-    public Date getBrandCreatetime() {
+    public String getBrandCreatetime() {
         return brandCreatetime;
     }
 
-    public void setBrandCreatetime(Date brandCreatetime) {
+    public void setBrandCreatetime(String brandCreatetime) {
         this.brandCreatetime = brandCreatetime;
     }
 
-    public Date getBrandModifytime() {
+    public String getBrandModifytime() {
         return brandModifytime;
     }
 
-    public void setBrandModifytime(Date brandModifytime) {
+    public void setBrandModifytime(String brandModifytime) {
         this.brandModifytime = brandModifytime;
     }
 

@@ -18,7 +18,18 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="<%=basePath%>/js/bootstrap.min.js"></script>
 </head>
+<script type="text/javascript">
+    window.onload=function () {
+        var infoshow='${info}';
+        if(infoshow===null||infoshow===""){
 
+        }else{
+            alert(infoshow);
+            <%request.removeAttribute("info");%>
+        }
+    }
+
+</script>
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -32,7 +43,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="修改"/>
-            <a class="btn btn-warning" href="supplier_list.jsp">返回上一级</a>
+            <a class="btn btn-warning" href="<%=basePath%>supplierview">返回上一级</a>
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">供应商基本信息</h5>
@@ -49,7 +60,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">供应商名称</label>
                 <div class="col-sm-9">
-                    <input type="text" name="supplierName" value="${supplier.supplierName}" class="form-control input-sm" placeholder="请输入供应商名称（必填）"/>
+                    <input type="text" required="required" name="supplierName" value="${supplier.supplierName}" class="form-control input-sm" placeholder="请输入供应商名称（必填）"/>
                 </div>
             </div>
         </div>
@@ -257,7 +268,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">供应商创建人</label>
                 <div class="col-sm-9">
-                    <input type="text" name="supplierMakingpartname" value="${supplier.supplierMakingpartname}" class="form-control input-sm" placeholder="请输入供应商创建人"/>
+                    <input type="text" name="supplierMakingpartname"  readonly="readonly" value="${supplier.supplierMakingpartname}" class="form-control input-sm" placeholder="请输入供应商创建人"/>
                 </div>
             </div>
         </div>
@@ -272,7 +283,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">供应商特殊说明</label>
                 <div class="col-sm-9">
-                    <textarea  name="supplierDescription" value="${supplier.supplierDescription}"  class="form-control"></textarea>
+                    <textarea  name="supplierDescription"   class="form-control">${supplier.supplierDescription}</textarea>
                 </div>
             </div>
 
@@ -283,7 +294,7 @@
     <div class="row">
         <div class="col-sm-3 col-sm-offset-4">
             <input  type="submit" class="btn btn-success" value="修改"/>
-            <a class="btn btn-warning" href="supplier_list.jsp">返回上一级</a>
+            <a class="btn btn-warning" href="<%=basePath%>supplierview">返回上一级</a>
         </div>
     </div>
 </form>

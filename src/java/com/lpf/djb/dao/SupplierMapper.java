@@ -32,4 +32,8 @@ public interface SupplierMapper {
     void insertsupplier(Supplier supplier);
 
     List<Supplier> querysupplier(HashMap map);
+
+    Supplier fillcutomer(HashMap map);
+
+    List<Supplier> findsupplierbyname(String supplierName);
 }

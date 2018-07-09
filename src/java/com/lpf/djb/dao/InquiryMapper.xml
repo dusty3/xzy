@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lpf.djb.dao.InquiryMapper">
+  <resultMap id="InquiryBaseResultMap" type="com.lpf.djb.pojo.Inquiry">
+    <id column="inquiry_id" jdbcType="INTEGER" property="inquiryId" />
+    <result column="brand_id" jdbcType="INTEGER" property="brandId" />
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
+    <result column="supplier_id" jdbcType="INTEGER" property="supplierId" />
+    <result column="supplier_name" jdbcType="VARCHAR" property="supplierName" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="inquiry_style" jdbcType="INTEGER" property="inquiryStyle" />
+    <result column="inquiry_send" jdbcType="INTEGER" property="inquirySend" />
+    <result column="inquiry_reply" jdbcType="INTEGER" property="inquiryReply" />
+    <result column="inquiry_mark" jdbcType="VARCHAR" property="inquiryMark" />
+    <result column="userinfo_id" jdbcType="INTEGER" property="userinfoId" />
+    <result column="userinfo_name" jdbcType="VARCHAR" property="userinfoName" />
+    <result column="inquiry_makingpartid" jdbcType="INTEGER" property="inquiryMakingpartid" />
+    <result column="inquiry_makingpartname" jdbcType="VARCHAR" property="inquiryMakingpartname" />
+    <result column="inquiry_createtime" jdbcType="TIMESTAMP" property="inquiryCreatetime" />
+    <result column="inquiry_modifytime" jdbcType="TIMESTAMP" property="inquiryModifytime" />
+    <result column="inquiry_replytime" jdbcType="TIMESTAMP" property="inquiryReplytime" />
+    <result column="inquiry_dr" jdbcType="INTEGER" property="inquiryDr" />
+    <result column="inquiry_language" jdbcType="INTEGER" property="inquiryLanguage" />
+    <collection property="inquiryproducts" ofType="com.lpf.djb.pojo.Inquiryproduct" select="getinquiryproduct" column="inquiry_id">
+    </collection>
+  </resultMap>
+
+
+  <resultMap id="InquiryProductBaseResultMap" type="com.lpf.djb.pojo.Inquiryproduct">
+    <id column="cp_id" jdbcType="INTEGER" property="cpId" />
+    <result column="inquiry_id" jdbcType="VARCHAR" property="inquiryId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_type" jdbcType="VARCHAR" property="productType" />
+    <result column="product_description" jdbcType="VARCHAR" property="productDescription" />
+    <result column="inquiry_number" jdbcType="INTEGER" property="inquiryNumber" />
+    <result column="ip_dr" jdbcType="INTEGER" property="ipDr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    inquiry_id, brand_id, brand_name, supplier_id, supplier_name, customer_id, customer_name, 
+    inquiry_style, inquiry_send, inquiry_reply, inquiry_mark, userinfo_id, userinfo_name, 
+    inquiry_makingpartid, inquiry_makingpartname, inquiry_createtime, inquiry_modifytime,
+    inquiry_replytime, inquiry_dr,inquiry_language
+  </sql>
+
+
+  <sql id="product_Column_List">
+    cp_id, inquiry_id, product_id, product_type, product_description, inquiry_number,ip_dr
+  </sql>
+  <!--
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from inquiry
+    where inquiry_id = #{inquiryId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertSelective" parameterType="test.model.Inquiry">
+    insert into inquiry
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="inquiryId != null">
+        inquiry_id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="brandName != null">
+        brand_name,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="supplierName != null">
+        supplier_name,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="inquiryStyle != null">
+        inquiry_style,
+      </if>
+      <if test="inquirySend != null">
+        inquiry_send,
+      </if>
+      <if test="inquiryReply != null">
+        inquiry_reply,
+      </if>
+      <if test="inquiryMark != null">
+        inquiry_mark,
+      </if>
+      <if test="userinfoId != null">
+        userinfo_id,
+      </if>
+      <if test="userinfoName != null">
+        userinfo_name,
+      </if>
+      <if test="inquiryMakingpartid != null">
+        inquiry_makingpartid,
+      </if>
+      <if test="inquiryMakingpartname != null">
+        inquiry_makingpartname,
+      </if>
+      <if test="inquiryCreatetime != null">
+        inquiry_createtime,
+      </if>
+      <if test="inquiryModifytime != null">
+        inquiry_modifytime,
+      </if>
+      <if test="inquiryReplytime != null">
+        inquiry_replytime,
+      </if>
+      <if test="inquiryDr != null">
+        inquiry_dr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="inquiryId != null">
+        #{inquiryId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="brandName != null">
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="supplierName != null">
+        #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="inquiryStyle != null">
+        #{inquiryStyle,jdbcType=INTEGER},
+      </if>
+      <if test="inquirySend != null">
+        #{inquirySend,jdbcType=INTEGER},
+      </if>
+      <if test="inquiryReply != null">
+        #{inquiryReply,jdbcType=INTEGER},
+      </if>
+      <if test="inquiryMark != null">
+        #{inquiryMark,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoId != null">
+        #{userinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="userinfoName != null">
+        #{userinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="inquiryMakingpartid != null">
+        #{inquiryMakingpartid,jdbcType=INTEGER},
+      </if>
+      <if test="inquiryMakingpartname != null">
+        #{inquiryMakingpartname,jdbcType=VARCHAR},
+      </if>
+      <if test="inquiryCreatetime != null">
+        #{inquiryCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inquiryModifytime != null">
+        #{inquiryModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inquiryReplytime != null">
+        #{inquiryReplytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inquiryDr != null">
+        #{inquiryDr,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="test.model.Inquiry">
+    update inquiry
+    <set>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="brandName != null">
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="supplierName != null">
+        supplier_name = #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="inquiryStyle != null">
+        inquiry_style = #{inquiryStyle,jdbcType=INTEGER},
+      </if>
+      <if test="inquirySend != null">
+        inquiry_send = #{inquirySend,jdbcType=INTEGER},
+      </if>
+      <if test="inquiryReply != null">
+        inquiry_reply = #{inquiryReply,jdbcType=INTEGER},
+      </if>
+      <if test="inquiryMark != null">
+        inquiry_mark = #{inquiryMark,jdbcType=VARCHAR},
+      </if>
+      <if test="userinfoId != null">
+        userinfo_id = #{userinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="userinfoName != null">
+        userinfo_name = #{userinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="inquiryMakingpartid != null">
+        inquiry_makingpartid = #{inquiryMakingpartid,jdbcType=INTEGER},
+      </if>
+      <if test="inquiryMakingpartname != null">
+        inquiry_makingpartname = #{inquiryMakingpartname,jdbcType=VARCHAR},
+      </if>
+      <if test="inquiryCreatetime != null">
+        inquiry_createtime = #{inquiryCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inquiryModifytime != null">
+        inquiry_modifytime = #{inquiryModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inquiryReplytime != null">
+        inquiry_replytime = #{inquiryReplytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inquiryDr != null">
+        inquiry_dr = #{inquiryDr,jdbcType=INTEGER},
+      </if>
+    </set>
+    where inquiry_id = #{inquiryId,jdbcType=INTEGER}
+  </update>
+ -->
+
+  <select id="loadingInquiry" parameterType="com.lpf.djb.pojo.LmUser" resultMap="InquiryBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from inquiry
+    where  inquiry_makingpartname = #{loginUsercode,jdbcType=VARCHAR} and  inquiry_dr=0
+  </select>
+
+
+  <select id="loadingAllInquiry"  resultMap="InquiryBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from inquiry where   inquiry_dr=0
+
+  </select>
+
+
+  <select id="getinquiryproduct"  parameterType="int" resultMap="InquiryProductBaseResultMap">
+    select
+    <include refid="product_Column_List" />
+    from inquiryproduct
+    where inquiry_id = #{inquiry_id,jdbcType=VARCHAR} and  ip_dr=0;
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="InquiryBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from inquiry
+    where inquiry_id = #{inquiryId,jdbcType=INTEGER} and inquiry_dr=0
+  </select>
+
+
+  <update id="issend" parameterType="java.lang.Integer">
+    update inquiry set inquiry_send=1 where inquiry_id = #{inquiryId,jdbcType=INTEGER}
+  </update>
+
+
+  <update id="delinquiry" parameterType="java.lang.Integer">
+    update inquiry set inquiry_dr=1 where inquiry_id = #{inquiryId,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="queryinquiry" parameterType="java.util.HashMap" resultMap="InquiryBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from inquiry
+    where 1=1
+    <if test="inquiryId!= null  ">
+     and    inquiry_id like CONCAT('%',#{inquiryId},'%')
+    </if>
+
+    <if test="brandName!= null and brandName!=''">
+      and    brand_name like CONCAT('%',#{brandName},'%')
+    </if>
+
+    <if test="customerName!= null and customerName!=''">
+      and    customer_name like CONCAT('%',#{customerName},'%')
+    </if>
+
+    <if test="supplierName!= null and supplierName!=''">
+      and    supplier_name like CONCAT('%',#{supplierName},'%')
+    </if>
+
+    <if test="inquiryStyle!= null and inquiryStyle != ''">
+      and    inquiry_style=#{inquiryStyle}
+    </if>
+
+    <if test="inquiryCreatetime!= null and inquiryCreatetime!=''">
+      and    inquiry_createtime <![CDATA[ >= ]]> #{inquiryCreatetime}
+    </if>
+
+    <if test="inquiryCreatetime1!= null and inquiryCreatetime1!=''">
+      and    inquiry_createtime <![CDATA[ <= ]]> #{inquiryCreatetime1}
+    </if>
+
+    <if test="inquirySend!= null and  inquirySend!=''">
+      and    inquiry_send= #{inquirySend}
+    </if>
+
+    <if test="loginUsercode!= null and  loginUsercode!=''">
+      and inquiry_makingpartname = #{loginUsercode,jdbcType=VARCHAR}
+    </if>
+
+   and inquiry_dr=0
+    <if test="productType!= null and  productType!=''">
+      and    inquiry_id in (select inquiry_id from inquiryproduct where product_type like CONCAT('%',#{productType},'%') )
+    </if>
+
+  </select>
+
+
+  <select id="querynewinquiryId" resultType="java.lang.Integer">
+    SELECT  max(inquiry_id) from inquiry
+  </select>
+
+
+  <insert id="insert" parameterType="com.lpf.djb.pojo.Inquiry">
+    insert into inquiry (inquiry_id, brand_id, brand_name,
+    supplier_id, supplier_name, customer_id,
+    customer_name, inquiry_style, inquiry_send,
+    inquiry_reply, inquiry_mark, userinfo_id,
+    userinfo_name, inquiry_makingpartid, inquiry_makingpartname,
+    inquiry_createtime, inquiry_dr)
+    values (#{inquiryId,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, #{brandName,jdbcType=VARCHAR},
+    #{supplierId,jdbcType=INTEGER}, #{supplierName,jdbcType=VARCHAR}, #{customerId,jdbcType=INTEGER},
+    #{customerName,jdbcType=VARCHAR}, #{inquiryStyle,jdbcType=INTEGER}, #{inquirySend,jdbcType=INTEGER},
+    #{inquiryReply,jdbcType=INTEGER}, #{inquiryMark,jdbcType=VARCHAR}, #{userinfoId,jdbcType=INTEGER},
+    #{userinfoName,jdbcType=VARCHAR}, #{inquiryMakingpartid,jdbcType=INTEGER}, #{inquiryMakingpartname,jdbcType=VARCHAR},
+    #{inquiryCreatetime}, 0)
+  </insert>
+
+
+  <update id="updateinquiry" parameterType="com.lpf.djb.pojo.Inquiry">
+    update inquiry
+    set brand_id = #{brandId,jdbcType=INTEGER},
+    brand_name = #{brandName,jdbcType=VARCHAR},
+    supplier_id = #{supplierId,jdbcType=INTEGER},
+    supplier_name = #{supplierName,jdbcType=VARCHAR},
+    customer_id = #{customerId,jdbcType=INTEGER},
+    customer_name = #{customerName,jdbcType=VARCHAR},
+    inquiry_style = #{inquiryStyle,jdbcType=INTEGER},
+    inquiry_send = #{inquirySend,jdbcType=INTEGER},
+    inquiry_reply = #{inquiryReply,jdbcType=INTEGER},
+    inquiry_mark = #{inquiryMark,jdbcType=VARCHAR},
+    userinfo_id = #{userinfoId,jdbcType=INTEGER},
+    userinfo_name = #{userinfoName,jdbcType=VARCHAR},
+    inquiry_modifytime = #{inquiryModifytime},
+    inquiry_dr = #{inquiryDr,jdbcType=INTEGER}
+    where inquiry_id = #{inquiryId,jdbcType=INTEGER}
+  </update>
+</mapper>

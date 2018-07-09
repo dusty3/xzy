@@ -18,7 +18,18 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="<%=basePath%>/js/bootstrap.min.js"></script>
 </head>
+<script type="text/javascript">
+    window.onload=function () {
+        var infoshow='${info}';
+        if(infoshow===null||infoshow===""){
 
+        }else{
+            alert(infoshow);
+            <%request.removeAttribute("info");%>
+        }
+    }
+
+</script>
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -32,7 +43,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-            <a class="btn btn-warning" href="../brand/brand_list.jsp">返回上一级</a>
+            <a class="btn btn-warning" href="<%=basePath%>brandview">返回上一级</a>
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">品牌信息</h5>
@@ -49,7 +60,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">品牌名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="brandName" class="form-control input-sm" placeholder="请输入品牌名称（必填）"/>
+                	<input type="text" name="brandName"  required="required" class="form-control input-sm" placeholder="请输入品牌名称（必填）"/>
                 </div>
             </div>
         </div>
@@ -127,7 +138,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-            <a class="btn btn-warning" href="../brand/brand_list.jsp">返回上一级</a>
+            <a class="btn btn-warning" href="<%=basePath%>brandview">返回上一级</a>
         </div>
     </div>
 </form>

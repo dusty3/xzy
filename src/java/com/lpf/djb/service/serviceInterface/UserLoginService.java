@@ -5,6 +5,7 @@ package com.lpf.djb.service.serviceInterface;
 import com.lpf.djb.pojo.Customer;
 import com.lpf.djb.pojo.LmUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,5 @@ import java.util.List;
  */
 public interface UserLoginService {
      LmUser  login(LmUser lmUser);
-
      List<Customer> loadingcustomer(LmUser lmUser);
 }

@@ -17,10 +17,10 @@
                 <div class="login-container">
                     <div class="center">
                         <h1>
-                            <i class="icon-leaf green"></i> <span class="red">某公司</span> <span
+                            <i class="icon-leaf green"></i> <span class="red">岱稳工业</span> <span
                                 class="white">询报价系统</span>
                         </h1>
-                        <h4 class="blue">版权所有</h4>
+                        <h4 class="blue">测试版1.0</h4>
                     </div>
                     <div class="space-6"></div>
                     <div class="position-relative">

@@ -182,10 +182,7 @@
     brand_tele = #{brandTele,jdbcType=VARCHAR},
     brand_email = #{brandEmail,jdbcType=VARCHAR},
     brand_description = #{brandDescription,jdbcType=VARCHAR},
-    brand_createtime = #{brandCreatetime,jdbcType=TIMESTAMP},
-    brand_modifytime = #{brandModifytime,jdbcType=TIMESTAMP},
-    brand__makingpartid = #{brandMakingpartid,jdbcType=INTEGER},
-    brand__makingpartname = #{brandMakingpartname,jdbcType=VARCHAR},
+    brand_modifytime = #{brandModifytime},
     brand_dr = #{brandDr,jdbcType=INTEGER}
     where brand_id = #{brandId,jdbcType=INTEGER}
   </update>
@@ -205,13 +202,11 @@
   <insert id="insertBrand" parameterType="com.lpf.djb.pojo.Brand">
     insert into brand (brand_id, brand_name, brand_manufacturersid,
     brand_manufacturers, brand_website, brand_tele,
-    brand_email, brand_description, brand_createtime,
-    brand_modifytime, brand__makingpartid, brand__makingpartname,
+    brand_email, brand_description, brand_createtime, brand__makingpartid, brand__makingpartname,
     brand_dr)
     values (#{brandId,jdbcType=INTEGER}, #{brandName,jdbcType=VARCHAR}, #{brandManufacturersid,jdbcType=INTEGER},
     #{brandManufacturers,jdbcType=VARCHAR}, #{brandWebsite,jdbcType=VARCHAR}, #{brandTele,jdbcType=VARCHAR},
-    #{brandEmail,jdbcType=VARCHAR}, #{brandDescription,jdbcType=VARCHAR}, #{brandCreatetime,jdbcType=TIMESTAMP},
-    #{brandModifytime,jdbcType=TIMESTAMP}, #{brandMakingpartid,jdbcType=INTEGER}, #{brandMakingpartname,jdbcType=VARCHAR},
+    #{brandEmail,jdbcType=VARCHAR}, #{brandDescription,jdbcType=VARCHAR}, #{brandCreatetime}, #{brandMakingpartid,jdbcType=INTEGER}, #{brandMakingpartname,jdbcType=VARCHAR},
     #{brandDr,jdbcType=INTEGER})
   </insert>
 
@@ -220,6 +215,29 @@
     <include refid="Base_Column_List" />
     from brand
     where brand_name like CONCAT('%',#{brandname},'%') and brand_dr=0
+  </select>
+
+
+  <select id="fillbrand" parameterType="java.util.HashMap" resultMap="BrandBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from brand
+    where brand_name =#{brandname} and brand_dr=0
+  </select>
+
+  <select id="findbrandbyname" parameterType="java.lang.String" resultMap="BrandBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from brand
+    where brand_name =#{brandName} and brand_dr=0
+  </select>
+
+
+  <select id="querybyname" parameterType="java.lang.String" resultMap="BrandBaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from brand
+    where brand_name =#{querybyname} and brand_dr=0
   </select>
 
 </mapper>

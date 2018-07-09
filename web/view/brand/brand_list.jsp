@@ -18,7 +18,18 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="<%=basePath%>/js/bootstrap.min.js"></script>
 </head>
+<script type="text/javascript">
+    window.onload=function () {
+        var infoshow='${info}';
+        if(infoshow===null||infoshow===""){
 
+        }else{
+            alert(infoshow);
+            <%request.removeAttribute("info");%>
+        }
+    }
+
+</script>
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >

@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -11,7 +16,18 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="./js/bootstrap.min.js"></script>
 </head>
+<script type="text/javascript">
+    window.onload=function () {
+        var infoshow='${info}';
+        if(infoshow===null||infoshow===""){
 
+        }else{
+            alert(infoshow);
+            <%request.removeAttribute("info");%>
+        }
+    }
+
+</script>
 <body>
 <div style="padding:0px; margin:0px;">
     <ul class="breadcrumb" style="  margin:0px; " >
@@ -22,12 +38,12 @@
 </div>
 
 <form action="updatecustomer" method="post" onsubmit="return check()">
-   <%-- <div class="row">
+    <div class="row">
         <div class="col-sm-3 col-sm-offset-4">
             <input  type="submit" class="btn btn-success" value="修改"/>
-            <a class="btn btn-warning" href="customer_list.jsp">返回上一级</a>
+            <a class="btn btn-warning" href="<%=basePath%>customerview">返回上一级</a>
         </div>
-    </div>--%>
+    </div>
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">开票信息</h5>
     <div class="row">
@@ -43,7 +59,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">公司名称</label>
                 <div class="col-sm-9">
-                    <input type="text" name="customerName" class="form-control input-sm" placeholder="请输入公司名称（必填）"  value="${customer.customerName}"/>
+                    <input type="text" name="customerName" required="required" class="form-control input-sm" placeholder="请输入公司名称（必填）"  value="${customer.customerName}"/>
                 </div>
             </div>
         </div>
@@ -232,7 +248,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">所属业务员</label>
                 <div class="col-sm-9">
-                    <input type="text" name="customerSalesmanid" class="form-control input-sm" placeholder="请输入业务员名字（默认登录用户）" value="${customer.customerSalesmanid}" <%--readonly="readonly"--%>/>
+                    <input type="text" name="customerSalesmanname" class="form-control input-sm" placeholder="请输入业务员名字（默认登录用户）" value="${customer.customerMakingpartname}" readonly="readonly"/>
                 </div>
             </div>
         </div>
@@ -263,7 +279,7 @@
     <div class="row">
         <div class="col-sm-3 col-sm-offset-4">
             <input  type="submit" class="btn btn-success" value="保存"/>
-            <a class="btn btn-warning" href="customer_list.jsp">返回上一级</a>
+            <a class="btn btn-warning" href="<%=basePath%>customerview">返回上一级</a>
         </div>
     </div>
 </form>

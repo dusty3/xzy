@@ -1,19 +1,19 @@
 package com.lpf.djb.ctroller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lpf.djb.pojo.Brand;
+import com.lpf.djb.pojo.Customer;
 import com.lpf.djb.pojo.LmUser;
 import com.lpf.djb.pojo.Supplier;
 import com.lpf.djb.service.serviceInterface.BrandService;
 import com.lpf.djb.service.serviceInterface.UserLoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,29 +47,33 @@ public class BrandController {
     @RequestMapping(value = "updatebrand",method = RequestMethod.POST)
     public String  updatebrand(@ModelAttribute Brand Brand, HttpSession httpSession, Model model){
 
+        Brand brand1 = brandService.queryByid(Brand.getBrandId());
+        if(!brand1.getBrandName().equals(Brand.getBrandName())) {
+            Boolean isexsit = brandService.customerisexist(Brand.getBrandName());
+            if (isexsit) {
+                model.addAttribute("info", "品牌名已存在");
+                return  "view/brand/brand_update";
+            }
+        }
 
-        //少了校验控制
         brandService.updateBrand(Brand);
 
-        httpSession.setAttribute("info","修改成功！");
+
 
         LmUser user = (LmUser) httpSession.getAttribute("user");
         List<Brand> loadingbrand = brandService.loadingBrand(user);
         httpSession.setAttribute("brands",loadingbrand);
-
+        model.addAttribute("info","修改成功");
         return  "view/brand/brand_list";
     }
 
     @RequestMapping(value = "/deletebrand",method = RequestMethod.GET)
     public String  deletebrand(@RequestParam("brandId") String brandId, HttpSession httpSession, Model model){
         brandService.delBrand(Integer.valueOf(brandId));
-
-        httpSession.setAttribute("info","删除成功！");
-
         LmUser user = (LmUser) httpSession.getAttribute("user");
         List<Brand> loadingbrand = brandService.loadingBrand(user);
         httpSession.setAttribute("brands",loadingbrand);
-
+        model.addAttribute("info","删除成功");
         return  "view/brand/brand_list";
     }
 
@@ -86,16 +90,16 @@ public class BrandController {
     @RequestMapping(value = "/addbrand",method = RequestMethod.POST)
     public String  addbrand(@ModelAttribute  Brand brand, HttpSession httpSession, Model model){
 
-
-
+        Boolean isexsit = brandService.customerisexist(brand.getBrandName());
+        if (isexsit) {
+            model.addAttribute("info", "品牌名已存在");
+            return  "view/brand/brand_update";
+        }
         brandService.insertBrand(brand);
-
-        httpSession.setAttribute("info","添加成功！");
-
         LmUser user = (LmUser) httpSession.getAttribute("user");
         List<Brand> loadingbrand = brandService.loadingBrand(user);
         httpSession.setAttribute("brands",loadingbrand);
-
+        model.addAttribute("info","添加成功");
         return  "view/brand/brand_list";
     }
 
@@ -110,12 +114,43 @@ public class BrandController {
         map.put("userloginid",user.getLoginId());
         List<Brand> queryBrand = brandService.queryBrand(map);
         if(queryBrand==null||queryBrand.size()==0) {
-
-            httpSession.setAttribute("info", "没有您要查询的品牌");
+            model.addAttribute("info", "没有您要查询的品牌");
         }
 
         httpSession.setAttribute("brands",queryBrand);
 
         return  "view/brand/brand_list";
+    }
+
+
+
+    @RequestMapping(value = "/SearchBrand",method = RequestMethod.POST)
+    public @ResponseBody
+    List<String> SearchBrand(@RequestBody JSONObject brandName, HttpSession httpSession, Model model){
+
+
+        LmUser user = (LmUser) httpSession.getAttribute("user");
+        HashMap map=new HashMap<String,Object>();
+        map.put("brandname",brandName.get("brandname"));
+        map.put("customerId",user.getLoginId());
+        List<Brand> queryBrand = brandService.queryBrand(map);
+        List<String> brands=new ArrayList<>();
+        for(Brand brand:queryBrand){
+            brands.add(brand.getBrandName()) ;
+        }
+        return brands;
+    }
+
+
+    @RequestMapping(value = "/fillbrand",method = RequestMethod.POST)
+    public @ResponseBody Brand fillbrand(@RequestBody JSONObject brandname, HttpSession httpSession, Model model){
+
+        LmUser user = (LmUser) httpSession.getAttribute("user");
+        HashMap map=new HashMap<String,Object>();
+        map.put("brandname",brandname.get("brandname"));
+        map.put("customerId",user.getLoginId());
+        Brand brand = brandService.fillbrand(map);
+
+        return brand;
     }
 }

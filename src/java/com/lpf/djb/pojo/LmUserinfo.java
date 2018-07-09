@@ -17,9 +17,9 @@ public class LmUserinfo {
 
     private String userinfoFax;
 
-    private Date userinfo_createtime;
+    private String userinfo_createtime;
 
-    private Date userinfo_modifytime;
+    private String userinfo_modifytime;
 
     private Integer dr;
 
@@ -79,19 +79,19 @@ public class LmUserinfo {
         this.userinfoFax = userinfoFax == null ? null : userinfoFax.trim();
     }
 
-    public Date getUserinfoCreatetime() {
+    public String getUserinfoCreatetime() {
         return userinfo_createtime;
     }
 
-    public void setUserinfoCreatetime(Date userinfo_createtime) {
+    public void setUserinfoCreatetime(String userinfo_createtime) {
         this.userinfo_createtime = userinfo_createtime;
     }
 
-    public Date getUserinfoModifytime() {
+    public String getUserinfoModifytime() {
         return userinfo_modifytime;
     }
 
-    public void setUserinfoModifytime(Date userinfo_modifytime) {
+    public void setUserinfoModifytime(String userinfo_modifytime) {
         this.userinfo_modifytime = userinfo_modifytime;
     }
 

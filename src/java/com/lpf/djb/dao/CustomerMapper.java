@@ -33,4 +33,8 @@ public interface CustomerMapper {
     void insertCustomer(Customer customer);
 
     List<Customer> querycustomer(HashMap<String,Object> map);
+
+    Customer fillcutomer(HashMap map);
+
+    List<Customer> findcustomerbyname(String customerName);
 }

@@ -258,9 +258,6 @@
     customs_parameter = #{customsParameter,jdbcType=VARCHAR},
     origin = #{origin,jdbcType=VARCHAR},
     isofficial = #{isofficial,jdbcType=INTEGER},
-    product_makingpartid = #{productMakingpartid,jdbcType=INTEGER},
-    product_makingpartname = #{productMakingpartname,jdbcType=VARCHAR},
-    product_createtime = #{productCreatetime,jdbcType=TIMESTAMP},
     product_modifytime = #{productModifytime,jdbcType=TIMESTAMP},
     product_dr = #{productDr,jdbcType=INTEGER}
     where product_id = #{productId,jdbcType=INTEGER}
@@ -287,7 +284,7 @@
     product_customsduty, product_chinesehs, product_foreignhs,
     customs_element, customs_parameter, origin,
     isofficial, product_makingpartid, product_makingpartname,
-    product_createtime, product_modifytime,
+    product_createtime,
     product_dr)
     values (#{productId,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, #{brandName,jdbcType=VARCHAR},
     #{productType,jdbcType=VARCHAR}, #{productDescription,jdbcType=VARCHAR}, #{productChinesename,jdbcType=VARCHAR},
@@ -295,7 +292,7 @@
     #{productCustomsduty,jdbcType=VARCHAR}, #{productChinesehs,jdbcType=VARCHAR}, #{productForeignhs,jdbcType=VARCHAR},
     #{customsElement,jdbcType=VARCHAR}, #{customsParameter,jdbcType=VARCHAR}, #{origin,jdbcType=VARCHAR},
     #{isofficial,jdbcType=INTEGER}, #{productMakingpartid,jdbcType=INTEGER}, #{productMakingpartname,jdbcType=VARCHAR},
-    #{productCreatetime,jdbcType=TIMESTAMP}, #{productModifytime,jdbcType=TIMESTAMP},
+    #{productCreatetime},
     #{productDr,jdbcType=INTEGER})
   </insert>
 

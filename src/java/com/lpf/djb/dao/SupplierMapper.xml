@@ -660,10 +660,7 @@
     supplier_goodsfax = #{supplierGoodsfax,jdbcType=VARCHAR},
     supplier_goodsemail = #{supplierGoodsemail,jdbcType=VARCHAR},
     supplier_customernumber = #{supplierCustomernumber,jdbcType=VARCHAR},
-    supplier_makingpartid = #{supplierMakingpartid,jdbcType=VARCHAR},
-    supplier_Makingpartname = #{supplierMakingpartname,jdbcType=VARCHAR},
-    supplier_createtime = #{supplierCreatetime,jdbcType=TIMESTAMP},
-    supplier_modifytime = #{supplierModifytime,jdbcType=TIMESTAMP},
+    supplier_modifytime = #{supplierModifytime},
     supplier_dr = #{supplierDr,jdbcType=INTEGER},
     supplier_description = #{supplierDescription,jdbcType=VARCHAR}
     where supplier_id = #{supplierId,jdbcType=INTEGER}
@@ -692,8 +689,7 @@
     supplier_orderfax, supplier_orderemail, supplier_goodsman,
     supplier_goodstele, supplier_goodsphone,
     supplier_goodsfax, supplier_goodsemail, supplier_customernumber,
-    supplier_makingpartname, supplier_createtime,
-    supplier_modifytime, supplier_dr, supplier_description
+    supplier_makingpartname, supplier_createtime, supplier_dr, supplier_description
     )
     values (#{supplierId,jdbcType=INTEGER}, #{supplierName,jdbcType=VARCHAR}, #{supplierCountry,jdbcType=VARCHAR},
     #{supplierWebsite,jdbcType=VARCHAR}, #{supplierInquiryman,jdbcType=VARCHAR}, #{supplierInquirytele,jdbcType=VARCHAR},
@@ -703,8 +699,7 @@
     #{supplierOrderfax,jdbcType=VARCHAR}, #{supplierOrderemail,jdbcType=VARCHAR}, #{supplierGoodsman,jdbcType=VARCHAR},
     #{supplierGoodstele,jdbcType=VARCHAR}, #{supplierGoodsphone,jdbcType=VARCHAR},
     #{supplierGoodsfax,jdbcType=VARCHAR}, #{supplierGoodsemail,jdbcType=VARCHAR}, #{supplierCustomernumber,jdbcType=VARCHAR},
-    #{supplierMakingpartname,jdbcType=VARCHAR}, #{supplierCreatetime,jdbcType=TIMESTAMP},
-    #{supplierModifytime,jdbcType=TIMESTAMP}, #{supplierDr,jdbcType=INTEGER}, #{supplierDescription,jdbcType=VARCHAR}
+    #{supplierMakingpartname,jdbcType=VARCHAR}, #{supplierCreatetime}, #{supplierDr,jdbcType=INTEGER}, #{supplierDescription,jdbcType=VARCHAR}
     )
   </insert>
 
@@ -714,5 +709,20 @@
     <include refid="Supplier_Base_Column_List" />
     from supplier
     where supplier_name like CONCAT('%',#{supplierName},'%') and supplier_Dr=0
+  </select>
+
+
+  <select id="fillcutomer" parameterType="java.util.HashMap" resultMap="SupplierResultMap">
+    select
+    <include refid="Supplier_Base_Column_List" />
+    from supplier
+    where supplier_name =#{suppliername} and supplier_Dr=0
+  </select>
+
+  <select id="findsupplierbyname" parameterType="java.lang.String" resultMap="SupplierResultMap">
+    select
+    <include refid="Supplier_Base_Column_List" />
+    from supplier
+    where supplier_name =#{suppliername} and supplier_Dr=0
   </select>
 </mapper>

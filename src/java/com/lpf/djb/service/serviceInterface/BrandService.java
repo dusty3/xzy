@@ -25,4 +25,10 @@ public interface BrandService {
     void insertBrand(Brand supplier);
 
     List<Brand> queryBrand(HashMap map);
+
+    Brand fillbrand(HashMap map);
+
+    Boolean customerisexist(String brandName);
+
+    Brand querybyname(String brandName);
 }

@@ -51,9 +51,9 @@ public class Customer {
 
     private String logisticsSpecialRequirements;
 
-    private Date customerCreatetime;
+    private String customerCreatetime;
 
-    private Date customerModifytime;
+    private String customerModifytime;
 
     private Integer customerDr;
 
@@ -249,19 +249,19 @@ public class Customer {
         this.logisticsSpecialRequirements = logisticsSpecialRequirements == null ? null : logisticsSpecialRequirements.trim();
     }
 
-    public Date getCustomerCreatetime() {
+    public String getCustomerCreatetime() {
         return customerCreatetime;
     }
 
-    public void setCustomerCreatetime(Date customerCreatetime) {
+    public void setCustomerCreatetime(String customerCreatetime) {
         this.customerCreatetime = customerCreatetime;
     }
 
-    public Date getCustomerModifytime() {
+    public String getCustomerModifytime() {
         return customerModifytime;
     }
 
-    public void setCustomerModifytime(Date customerModifytime) {
+    public void setCustomerModifytime(String customerModifytime) {
         this.customerModifytime = customerModifytime;
     }
 

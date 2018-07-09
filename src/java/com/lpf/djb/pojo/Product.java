@@ -37,9 +37,9 @@ public class Product {
 
     private String productMakingpartname;
 
-    private Date productCreatetime;
+    private String productCreatetime;
 
-    private Date productModifytime;
+    private String productModifytime;
 
     private Integer productDr;
 
@@ -179,19 +179,19 @@ public class Product {
         this.productMakingpartname = productMakingpartname == null ? null : productMakingpartname.trim();
     }
 
-    public Date getProductCreatetime() {
+    public String getProductCreatetime() {
         return productCreatetime;
     }
 
-    public void setProductCreatetime(Date productCreatetime) {
+    public void setProductCreatetime(String productCreatetime) {
         this.productCreatetime = productCreatetime;
     }
 
-    public Date getProductModifytime() {
+    public String getProductModifytime() {
         return productModifytime;
     }
 
-    public void setProductModifytime(Date productModifytime) {
+    public void setProductModifytime(String productModifytime) {
         this.productModifytime = productModifytime;
     }
 

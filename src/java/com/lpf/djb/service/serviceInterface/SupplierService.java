@@ -25,4 +25,8 @@ public interface SupplierService {
     void insertsupplier(Supplier supplier);
 
     List<Supplier> querysupplier(HashMap map);
+
+    Supplier fillcutomer(HashMap map);
+
+    Boolean supplierisexist(String supplierName);
 }

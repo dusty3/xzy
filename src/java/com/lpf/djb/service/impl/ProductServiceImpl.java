@@ -8,6 +8,7 @@ import com.lpf.djb.service.serviceInterface.ProductService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +36,8 @@ public class ProductServiceImpl implements ProductService {
     public void updateProduct(Product product) {
         product.setProductDr(0);
         product.setIsofficial(0);
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        product.setProductModifytime(format.format(new Date()));
         productMapper.updateProduct(product);
     }
 
@@ -52,7 +55,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void insertProduct(Product product) {
         product.setProductDr(0);
-        product.setProductCreatetime(new Date());
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        product.setProductCreatetime(format.format(new Date()));
         product.setIsofficial(0);
         productMapper.insertProduct(product);
     }
