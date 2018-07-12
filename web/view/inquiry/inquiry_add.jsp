@@ -43,9 +43,9 @@
             var tr = $("<tr>"+row_count+"</tr>");
             tr.append($("<td><input type='checkbox' name='selectone["+row_count+"]"+"' id='selectone"+row_count+"' value='New'></td>"));
             tr.append("<td><input type='text' id= 'inquiryproducts["+row_count+"].productDescription"+"'  name='inquiryproducts["+row_count+"].productDescription"+"'  placeholder='请输入外文品名'  size='50'/></td>");
-            tr.append("<td><input type='text' id= 'inquiryproducts["+row_count+"].productType"+"'  name='inquiryproducts["+row_count+"].productType"+"' placeholder='请输入型号'  size='50'/></td>");
-            tr.append("<td><input type='text' id=  'inquiryproducts["+row_count+"].inquiryNumber"+"' name='inquiryproducts["+row_count+"].inquiryNumber"+"' placeholder='请输入数量'  size='20'/></td>");
-            tr.append("<td><input type='text' id=  'inquiryproducts["+row_count+"].ipDr"+"' name='inquiryproducts["+row_count+"].ipDr"+"' value='0'  /></td>");
+            tr.append("<td><input type='text' id= 'inquiryproducts["+row_count+"].productType"+"'  name='inquiryproducts["+row_count+"].productType"+"' placeholder='请输入型号'  size='50' required='required'/></td>");
+            tr.append("<td><input type='text' id=  'inquiryproducts["+row_count+"].inquiryNumber"+"' name='inquiryproducts["+row_count+"].inquiryNumber"+"' placeholder='请输入数量'  size='20'  required='required' /></td>");
+            tr.append("<td><input type='text' id=  'inquiryproducts["+row_count+"].ipDr"+"' name='inquiryproducts["+row_count+"].ipDr"+"' value='0'  hidden='hidden'/></td>");
             tr.append("<td><input type='button' value='删除' onclick='delRow(this)'></td>");
             row.append(tr);
             table1.append(row);
@@ -64,8 +64,8 @@
         #search_cutomer{
             position: absolute;
             z-index: 999;
-            left: 85px;
-            top: 200px;
+            left: 100px;
+            top: 198px;
             border: 1px solid #74c0f9;
             display: none;
             background: #FFF;
@@ -74,8 +74,8 @@
         #search_supplier{
             position: absolute;
             z-index: 999;
-            left: 200px;
-            top: 75px;
+            left: 100px;
+            top: 282px;
             border: 1px solid #74c0f9;
             display: none;
             background: #FFF;
@@ -84,8 +84,8 @@
         #search_brand{
             position: absolute;
             z-index: 999;
-            left: 300px;
-            top: 75px;
+            left: 100px;
+            top: 240px;
             border: 1px solid #74c0f9;
             display: none;
             background: #FFF;
@@ -616,6 +616,7 @@ function  fillsupplier(comText) {
             <td><label >品牌名称</label></td>
             <td><input type="text" required="required" id="brandName" name="brandName" autocomplete="off" placeholder="请输入品牌名称" /></td>
             <div id="search_brand" name="search_brand" ></div>
+
             <td><label >回复日期</label></td>
             <td><input type="date" name="inquiryReplytime"  placeholder="请输入回复日期" /></td>
             <td><label >询价语言</label></td>
@@ -657,16 +658,17 @@ function  fillsupplier(comText) {
                 <th>外文品名</th>
                 <th>型号</th>
                 <th>数量</th>
+                <th></th>
                 <th>操作</th>
             </tr>
             </tbody>
             <tbody>
             <tr>
                 <td><input type="checkbox" id="selectone" /></td>
-                <td><input type='text' id= 'inquiryproducts[0].productDescription'  name='inquiryproducts[0].productDescription'  placeholder='请输入外文品名'  size='50' required="required"/></td>
-                <td><input type="text" id= 'inquiryproducts[0].productType' name="inquiryproducts[0].productType"  placeholder="请输入型号" size="50" /></td>
-                <td><input type="text" id= 'inquiryproducts[0].inquiryNumber' name="inquiryproducts[0].inquiryNumber"  placeholder="请输入数量" size="20"/></td>
-                <td><input type='text' id=  'inquiryproducts[0].ipDr' name="inquiryproducts[0].ipDr" value='0'  /></td>
+                <td><input type='text' id= 'inquiryproducts[0].productDescription'  name='inquiryproducts[0].productDescription'  placeholder='请输入外文品名'  size='50' /></td>
+                <td><input type="text" id= 'inquiryproducts[0].productType' name="inquiryproducts[0].productType"  placeholder="请输入型号" size="50" required="required"/></td>
+                <td><input type="text" id= 'inquiryproducts[0].inquiryNumber' name="inquiryproducts[0].inquiryNumber"  placeholder="请输入数量" size="20" required="required"/></td>
+                <td><input type='text' id=  'inquiryproducts[0].ipDr' name="inquiryproducts[0].ipDr" value='0'  hidden="hidden"/></td>
                 <td><input type='button' value='删除' onclick='delRow(this);' /></td>
             </tr>
             </tbody>

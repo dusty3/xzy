@@ -68,7 +68,7 @@ public class InquiryController  {
             return "view/inquiry/inquiry_list";
         }
         List<Inquiryproduct> inquiryproducts=inquiryService.queryIPbyid(Integer.valueOf(inquiryId));
-        Customer customer = customerService.queyByid(inquiry.getCustomerId());
+        Customer customer = customerService.findcutomerbyname(inquiry.getCustomerName());
         Supplier supplier = supplierService.queryByid(inquiry.getSupplierId());
         Brand brand = brandService.queryByid(inquiry.getBrandId());
         model.addAttribute("inquiry",inquiry);

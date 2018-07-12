@@ -30,6 +30,15 @@ public class CustomerServiceImpl  implements CustomerService{
     }
 
     @Override
+    public Customer findcutomerbyname(String customerName) {
+        List<Customer> findcustomerbyname = customerMapper.findcustomerbyname(customerName);
+        if(findcustomerbyname!=null&&findcustomerbyname.size()!=0)
+            return  findcustomerbyname.get(0);
+        return  null;
+    }
+
+
+    @Override
     public void updateCustomer(Customer customer) {
         Date date=new Date();
         SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

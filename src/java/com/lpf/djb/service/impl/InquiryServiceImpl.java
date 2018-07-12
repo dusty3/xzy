@@ -43,7 +43,7 @@ public class InquiryServiceImpl implements InquiryService {
     @Override
     public void sendmail(Inquiry inquiry, Supplier supplier, Brand brand, List<Inquiryproduct> inquiryproducts) {
         StringBuffer buffer=createcontent(inquiry,supplier,brand,inquiryproducts);
-        send( buffer,inquiry.getInquiryId());
+        send( inquiry,buffer,inquiry.getInquiryId());
     }
 
     @Override
@@ -114,12 +114,12 @@ public class InquiryServiceImpl implements InquiryService {
         return inquiryMapper.loadingAllInquiry();
     }
 
-    private void send(StringBuffer buffer, Integer inquiryId) {
+    private void send(Inquiry inquiry,StringBuffer buffer, Integer inquiryId) {
         MailUtil mailUtil=new MailUtil();
         String path = Thread.currentThread().getContextClassLoader().getResource("../").getPath();
         path=path+"mailfile/11.txt";
         // 设置发件人地址、收件人地址和邮件标题
-        mailUtil.setAddress("13182746408@163.com", "1215057641@qq.com", "询价单号:"+inquiryId);
+        mailUtil.setAddress("inquiry@126.com", "inquiry@da-wind.com", "询价单号:"+inquiry.getInquiryMakingpartname()+inquiryId);
         // 设置要发送附件的位置和标题
         mailUtil.setAffix(path, "11.txt");
 
@@ -130,38 +130,38 @@ public class InquiryServiceImpl implements InquiryService {
          * 因为程序属于第三方登录，所以登录密码必须使用163的授权码
          */
         // 注意： [授权码和你平时登录的密码是不一样的]
-        mailUtil.send("smtp.163.com", "13182746408@163.com", "YK834690",buffer);
+        mailUtil.send("smtp.126.com", "inquiry@126.com", "daiwen20182018",buffer);
     }
 
     private StringBuffer createcontent(Inquiry inquiry, Supplier supplier, Brand brand, List<Inquiryproduct> inquiryproducts) {
           StringBuffer context=new StringBuffer();
            String mail=supplier.getSupplierInquiryemail()==null?"null":supplier.getSupplierInquiryemail();
-          context.append("mail:").append(mail).append("\n");
+          context.append("E-Mail: ").append(mail).append("\n");
         context.append("\n");
         context.append("\n");
 
         for (Inquiryproduct inquiryproduct:inquiryproducts) {
             String brandname=  brand.getBrandName()==null?"null": brand.getBrandName();
-            context.append("Marke:").append(brandname).append("\n");
+            context.append("Marke: ").append(brandname).append("\n");
             String  prdes=  inquiryproduct.getProductDescription()==null?"null":inquiryproduct.getProductDescription();
-            context.append("Produktbeschreibung:").append(prdes).append("\n");
+            context.append("Beschreibung: ").append(prdes).append("\n");
             String protype=  inquiryproduct.getProductType()==null?"null":inquiryproduct.getProductType();
-            context.append("Type:").append(protype).append("\n");
+            context.append("Type: ").append(protype).append("\n");
             Integer inquirynumber=inquiryproduct.getInquiryNumber()==null?0:inquiryproduct.getInquiryNumber();
-            context.append("Menge/St:").append(String.valueOf(inquirynumber)).append("\n");
+            context.append("Menge: ").append(String.valueOf(inquirynumber)).append("\n");
         }
         context.append("\n");
         context.append("\n");
         context.append("\n");
 
        String  lanauage= inquiry.getInquiryLanguage()==null?"null":(inquiry.getInquiryLanguage()==0?"DE":"EN");
-        context.append("Language:").append(lanauage).append("\n");
+        context.append("Language: ").append(lanauage).append("\n");
         String  suppliername= supplier.getSupplierName()==null?"null": supplier.getSupplierName();
-        context.append("Firma:").append(suppliername).append("\n");
+        context.append("Firma: ").append(suppliername).append("\n");
        String  sim= supplier.getSupplierInquiryman()==null?"null": supplier.getSupplierInquiryman();
         context.append("Kontakt:").append(sim).append("\n");
         String phone=supplier.getSupplierInquiryphone()==null?"null":supplier.getSupplierInquiryphone();
-        context.append("Tel:").append(phone).append("\n");
+        context.append("Tel: ").append(phone).append("\n");
         return  context;
     }
     

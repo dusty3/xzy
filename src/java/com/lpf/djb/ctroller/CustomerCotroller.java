@@ -114,7 +114,8 @@ public class CustomerCotroller {
         LmUser user = (LmUser) httpSession.getAttribute("user");
         HashMap map=new HashMap<String,Object>();
         map.put("corpname",corpname);
-        map.put("customerId",user.getLoginId());
+        map.put("loginUsercode",user.getLoginUsercode());
+
         List<Customer> querycustomer = customerService.querycustomer(map);
         if(querycustomer==null||querycustomer.size()==0) {
             model.addAttribute("info", "没有您要查询的公司");
@@ -132,7 +133,7 @@ public class CustomerCotroller {
         LmUser user = (LmUser) httpSession.getAttribute("user");
         HashMap map=new HashMap<String,Object>();
         map.put("corpname",corpname.get("corpname"));
-        map.put("customerId",user.getLoginId());
+        map.put("loginUsercode",user.getLoginUsercode());
         List<Customer> querycustomer = customerService.querycustomer(map);
         List<String> corpnames=new ArrayList<>();
         for(Customer customer:querycustomer){

@@ -14,6 +14,8 @@ public interface CustomerService {
 
     public Customer queyByid(Integer customerid);
 
+    Customer findcutomerbyname(String customerName);
+
     public  void  updateCustomer(Customer cmCustomer);
 
     public  void    delcutomer(Integer   customerid);

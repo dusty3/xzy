@@ -140,9 +140,9 @@
                         </a></li>
 
                         <%--查询所有用户所属业务员--%>
-                        <li><a href="./view/customer/customer_list.html" target="mainframe">
-                            <i class="icon-double-angle-right"></i> 所有客户
-                        </a></li>
+                        <%--<li><a href="./view/customer/customer_list.html" target="mainframe">--%>
+                            <%--<i class="icon-double-angle-right"></i> 所有客户--%>
+                        <%--</a></li>--%>
                     </ul>
                 </li>
 

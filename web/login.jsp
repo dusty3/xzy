@@ -17,7 +17,7 @@
                 <div class="login-container">
                     <div class="center">
                         <h1>
-                            <i class="icon-leaf green"></i> <span class="red">岱稳工业</span> <span
+                            <i class="icon-leaf green"></i> <span class="red">工业</span> <span
                                 class="white">询报价系统</span>
                         </h1>
                         <h4 class="blue">测试版1.0</h4>

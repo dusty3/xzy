@@ -45,7 +45,7 @@
     select
     <include refid="Base_Column_List" />
     from customer
-    where customer_Salesmanid = #{loginId,jdbcType=INTEGER} and  customer_dr=0
+    where customer_salesmanname = #{loginUsercode,jdbcType=INTEGER} and  customer_dr=0
   </select>
 
 
@@ -277,7 +277,7 @@
     select
     <include refid="Base_Column_List" />
     from customer
-    where customer_name like CONCAT('%',#{corpname},'%') and customer_dr=0 and customer_Salesmanid = #{customerId,jdbcType=INTEGER}
+    where customer_name like CONCAT('%',#{corpname},'%') and customer_dr=0 and customer_salesmanname = #{loginUsercode,jdbcType=INTEGER}
   </select>
 
 

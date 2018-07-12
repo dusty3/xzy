@@ -67,7 +67,7 @@
             position: absolute;
             z-index: 999;
             left: 100px;
-            top: 75px;
+            top: 198px;
             border: 1px solid #74c0f9;
             display: none;
             background: #FFF;
@@ -76,8 +76,8 @@
         #search_supplier{
             position: absolute;
             z-index: 999;
-            left: 200px;
-            top: 75px;
+            left: 100px;
+            top: 282px;
             border: 1px solid #74c0f9;
             display: none;
             background: #FFF;
@@ -86,14 +86,15 @@
         #search_brand{
             position: absolute;
             z-index: 999;
-            left: 300px;
-            top: 75px;
+            left: 100px;
+            top: 240px;
             border: 1px solid #74c0f9;
             display: none;
             background: #FFF;
         }
 
     </style>
+
 
     <script>
         var highlightindex = -1; //高亮设置（-1为不高亮）
@@ -615,9 +616,9 @@
             <td><label >品牌名称</label></td>
             <td><input type="text"  required="required" id="brandName" name="brandName"  value="${inquiry.brandName}" placeholder="请输入品牌名称" autocomplete="off" /></td>
             <div id="search_brand" name="search_brand" ></div>
-            <td><label >供应商名称</label></td>
-            <td><input type="text" required="required" id="supplierName" name="supplierName"  value="${inquiry.supplierName}" placeholder="请输入供应商名称"  autocomplete="off" /></td>
-            <div id="search_supplier" name="search_supplier" ></div>
+            <td><label >回复日期</label></td>
+            <td><input type="date" name="inquiryReplytime"  value="${inquiry.inquiryReplytime}" placeholder="请输入回复日期" /></td>
+
 
             <td><label >询价语言</label></td>
             <td><select id="activename3" name="inquiryLanguage" >
@@ -628,9 +629,10 @@
             <td><input type="text" name="inquiryMark"  value="${inquiry.inquiryMark}" placeholder="请输入业务员备注" /></td>
         </tr>
         <tr>
+            <td><label >供应商名称</label></td>
+            <td><input type="text" required="required" id="supplierName" name="supplierName"  value="${inquiry.supplierName}" placeholder="请输入供应商名称"  autocomplete="off" /></td>
+            <div id="search_supplier" name="search_supplier" ></div>
 
-            <td><label >回复日期</label></td>
-            <td><input type="date" name="inquiryReplytime"  value="${inquiry.inquiryReplytime}" placeholder="请输入回复日期" /></td>
             <td><label >供应商联系人</label></td>
             <td><input type="text" id="supplierInquiryman" name="supplierInquiryman" value="${supplier.supplierInquiryman}"  placeholder="" readonly="readonly"/></td>
             <td><label >供应商邮箱</label></td>
